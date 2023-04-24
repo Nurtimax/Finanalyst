@@ -1,5 +1,6 @@
 {
   "name": "app-name",
+  "homepage": "https://nurtimax.github.io/Financial-Planner",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
