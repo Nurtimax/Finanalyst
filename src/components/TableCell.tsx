@@ -18,7 +18,7 @@ interface subNewStoreValues {
   value: number;
 }
 
-const TableCell: FC<TableCellProps> = ({ id, storeId }) => {
+const TableCell: FC<TableCellProps> = ({ id }) => {
   const { data } = useAppSelector((state) => state.price);
 
   const dispatch = useAppDispatch();
@@ -53,14 +53,14 @@ const TableCell: FC<TableCellProps> = ({ id, storeId }) => {
   };
 
   return (
-    <>
+    <div>
       <input
-        type="text"
+        type="number"
         value={newStoreId.value}
         onChange={handleChange}
         style={{ width: "100%" }}
       />
-    </>
+    </div>
   );
 };
 

@@ -21,7 +21,7 @@ const Total: FC<TotalProps> = ({ original }) => {
     return acc;
   }, 0);
 
-  return <div>Total: ${totalPrice}</div>;
+  return <div>Total: $ {totalPrice}</div>;
 };
 
 export default Total;

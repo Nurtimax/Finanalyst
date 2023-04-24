@@ -22,7 +22,7 @@ const FooterPrice: FC<FooterPriceProps> = ({ header, keys, index }) => {
     return acc;
   }, 0);
 
-  return <div>{totalFooterPrice}</div>;
+  return <div>$ {totalFooterPrice}</div>;
 };
 
 export default FooterPrice;

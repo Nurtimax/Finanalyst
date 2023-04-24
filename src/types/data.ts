@@ -12,4 +12,5 @@ export interface Month {
 export interface StoreMonthData {
   store: Store;
   months: Month[];
+  [key: string]: unknown;
 }

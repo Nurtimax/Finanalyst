@@ -1,12 +1,27 @@
+import { Container, createTheme, ThemeProvider } from "@mui/material";
 import Table from "./components/Table";
-import { useAppSelector } from "./hooks/dispatch";
 
 function App() {
-  const { data } = useAppSelector((state) => state.price);
+  const theme = createTheme({
+    components: {
+      MuiContainer: {
+        styleOverrides: {
+          maxWidthLg: {
+            "&.MuiContainer-maxWidthLg": {
+              maxWidth: "95%",
+            },
+          },
+        },
+      },
+    },
+  });
+
   return (
-    <div>
-      <Table data={data} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Table />
+      </Container>
+    </ThemeProvider>
   );
 }
 
