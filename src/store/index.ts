@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import price from './price';
 import shedule from './shedule';
+import columns from './columns';
 
 export const store = configureStore({
   reducer: {
     price,
     shedule,
+    columns,
   },
 });
 

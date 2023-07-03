@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, Container, styled } from '@mui/material';
-import Table from '../components/Table';
+import BasicTabs from '../components/Tab';
 
 interface IHomeProps {
   [key: string]: unknown;
@@ -12,7 +12,7 @@ const Home: FC<IHomeProps> = () => {
   return (
     <StyledHome>
       <Container>
-        <Table />
+        <BasicTabs />
       </Container>
     </StyledHome>
   );

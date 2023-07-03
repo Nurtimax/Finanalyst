@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import { Box, styled } from '@mui/material';
+import MainActions from './actions';
+import SheduleTable from './SheduleTable';
 
 interface ISheduleProps {
   [key: string]: unknown;
@@ -11,7 +13,12 @@ const StyledShedule = styled(Box)(() => ({
 }));
 
 const Shedule: FC<ISheduleProps> = () => {
-  return <StyledShedule>Shedule in the process </StyledShedule>;
+  return (
+    <StyledShedule>
+      <MainActions />
+      <SheduleTable />
+    </StyledShedule>
+  );
 };
 
 export default Shedule;

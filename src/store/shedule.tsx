@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IShedule } from '../types/data';
+import { data } from '../utils/constants/data';
 
 interface InitialState {
-  data: [];
+  data: IShedule[];
 }
 
 const initialState: InitialState = {
-  data: [],
+  data,
 };
 
 const sheduleSlice = createSlice({
