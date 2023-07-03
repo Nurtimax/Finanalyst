@@ -8,9 +8,6 @@ import {
   Paper,
   styled,
 } from '@mui/material';
-import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
-import dayjs from 'dayjs';
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTable, CellProps, FooterProps, HeaderGroup } from 'react-table';
