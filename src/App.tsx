@@ -1,5 +1,5 @@
-import { Container, createTheme, ThemeProvider } from "@mui/material";
-import Table from "./components/Table";
+import { Container, createTheme, ThemeProvider } from '@mui/material';
+import BasicTabs from './components/Tab';
 
 function App() {
   const theme = createTheme({
@@ -7,8 +7,8 @@ function App() {
       MuiContainer: {
         styleOverrides: {
           maxWidthLg: {
-            "&.MuiContainer-maxWidthLg": {
-              maxWidth: "95%",
+            '&.MuiContainer-maxWidthLg': {
+              maxWidth: '95%',
             },
           },
         },
@@ -19,7 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        <Table />
+        <BasicTabs />
       </Container>
     </ThemeProvider>
   );

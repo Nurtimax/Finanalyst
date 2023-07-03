@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { useAppSelector } from "../hooks/dispatch";
+import { FC } from 'react';
+import { useAppSelector } from '../../hooks/dispatch';
 
 interface FooterPriceProps {
   header: string;
@@ -12,9 +12,7 @@ const FooterPrice: FC<FooterPriceProps> = ({ header, keys, index }) => {
 
   const choosedKey = keys.map((item) => item[index]);
 
-  const footerPrice = data.map((item) =>
-    item.months.find((item) => choosedKey.includes(item.id))
-  );
+  const footerPrice = data.map((item) => item.months.find((item) => choosedKey.includes(item.id)));
   const totalFooterPrice = footerPrice.reduce((acc, item) => {
     if (item?.value) {
       return acc + item?.value;

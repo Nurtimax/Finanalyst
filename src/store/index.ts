@@ -1,9 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import price from "./price";
+import { configureStore } from '@reduxjs/toolkit';
+import price from './price';
+import shedule from './shedule';
 
 export const store = configureStore({
   reducer: {
     price,
+    shedule,
   },
 });
 

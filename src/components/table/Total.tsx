@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { useAppSelector } from "../hooks/dispatch";
-import { StoreMonthData } from "../types/data";
+import { FC } from 'react';
+import { useAppSelector } from '../../hooks/dispatch';
+import { StoreMonthData } from '../../types/data';
 
 interface TotalProps {
   original: StoreMonthData;

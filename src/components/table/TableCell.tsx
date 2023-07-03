@@ -1,6 +1,6 @@
-import { ChangeEvent, FC } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/dispatch";
-import { actionPriceSlice } from "../store/price";
+import { ChangeEvent, FC } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/dispatch';
+import { actionPriceSlice } from '../../store/price';
 
 export interface TableCellProps {
   value: number;
@@ -54,12 +54,7 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
 
   return (
     <div>
-      <input
-        type="number"
-        value={newStoreId.value}
-        onChange={handleChange}
-        style={{ width: "100%" }}
-      />
+      <input type="number" value={newStoreId.value} onChange={handleChange} style={{ width: '100%' }} />
     </div>
   );
 };
