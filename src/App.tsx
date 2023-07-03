@@ -1,5 +1,5 @@
-import { Container, createTheme, ThemeProvider } from "@mui/material";
-import Table from "./components/Table";
+import { createTheme, ThemeProvider } from '@mui/material';
+import AppRouter from './router/AppRouter';
 
 function App() {
   const theme = createTheme({
@@ -7,8 +7,8 @@ function App() {
       MuiContainer: {
         styleOverrides: {
           maxWidthLg: {
-            "&.MuiContainer-maxWidthLg": {
-              maxWidth: "95%",
+            '&.MuiContainer-maxWidthLg': {
+              maxWidth: '95%',
             },
           },
         },
@@ -18,9 +18,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Table />
-      </Container>
+      <AppRouter />
     </ThemeProvider>
   );
 }
