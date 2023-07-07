@@ -1,12 +1,29 @@
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import { IShedule, ISheduleReducer } from '../../types/data';
 
 // interface ITableData {
 //   result: ISheduleReducer[];
 //   columns: Column<IShedule>[];
 // }
+
+function processValue(value: string | Dayjs | null) {
+  let stringValue: string;
+
+  if (typeof value === 'string') {
+    stringValue = value;
+  } else if (dayjs.isDayjs(value)) {
+    stringValue = value.format('YYYY-MM-DD');
+  } else {
+    // Handle the case when the value is neither a string nor a Dayjs object
+    stringValue = '';
+  }
+
+  const parts = stringValue.split('-');
+  // Continue processing the parts array
+  return parts;
+}
 
 export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
   const currentDate = new Date();
@@ -24,7 +41,7 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
   }
 
   const dates = data.map((dateStr) => {
-    const [month, day, year] = dateStr.dateTime.split('-');
+    const [month, day, year] = processValue(dateStr.dateTime);
     return { date: new Date(`20${year}-${month}-${day}`), dates: dateStr.dates, id: dateStr.id };
   });
 
@@ -60,7 +77,7 @@ export const data = [
   {
     id: 1,
     header: '1 декабрь 2023',
-    dateTime: '07-05-23',
+    dateTime: '',
     dates: [],
     userData: {
       name: 'Nurtilek',
@@ -72,7 +89,7 @@ export const data = [
   {
     id: 2,
     header: '2 декабрь 2023',
-    dateTime: '07-10-23',
+    dateTime: '',
     dates: [],
     userData: {
       name: 'Samat',
@@ -84,7 +101,7 @@ export const data = [
   {
     id: 3,
     header: '3 декабрь 2023',
-    dateTime: '07-15-23',
+    dateTime: '',
     dates: [],
     userData: {
       name: 'Adilet',
@@ -95,8 +112,8 @@ export const data = [
   },
   {
     id: 4,
-    header: '4 декабрь 2023',
-    dateTime: '07-20-23',
+    header: '',
+    dateTime: '',
     dates: [],
     userData: {
       name: 'Dastan',

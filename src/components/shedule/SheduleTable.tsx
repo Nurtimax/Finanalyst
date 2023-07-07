@@ -16,7 +16,7 @@ import { actionColumns } from '../../store/columns';
 import { IShedule } from '../../types/data';
 import { createTableData } from '../../utils/constants/data';
 import { parseFormatDate } from '../../utils/helpers/formatDate';
-import { returnSheduleTableCell } from './SheduleTableCell';
+import SheduleTableCell from './SheduleTableCell';
 
 interface Props {}
 
@@ -59,7 +59,7 @@ const SheduleTable: React.FC<Props> = () => {
           accessor: String(item.date),
           Cell: ({ cell }: MyCellProps) => {
             const id = cell.row.original.id;
-            return returnSheduleTableCell(id);
+            return <SheduleTableCell id={id} date={item.date} />;
           },
         };
       }),
@@ -67,7 +67,7 @@ const SheduleTable: React.FC<Props> = () => {
 
     dispatch(actionColumns.columnsEffect(columns));
     dispatch(actionColumns.monthColumnsEffect(tableColumns));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
