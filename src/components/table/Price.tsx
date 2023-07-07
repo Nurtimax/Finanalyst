@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
+import { fInputPriceMask } from '../../utils/helpers/priceMask';
 
 interface PriceProps {}
 
@@ -12,7 +13,7 @@ const Price: FC<PriceProps> = () => {
 
   const totalOfTotalPrice = totalOfTotalMonths.reduce((acc, item) => acc + item, 0);
 
-  return <div>$ {totalOfTotalPrice}</div>;
+  return <div>$ {fInputPriceMask(String(totalOfTotalPrice))}</div>;
 };
 
 export default Price;

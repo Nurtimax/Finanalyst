@@ -54,7 +54,12 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
 
   return (
     <div>
-      <input type="number" value={newStoreId.value} onChange={handleChange} style={{ width: '100%' }} />
+      <input
+        type="number"
+        value={String(newStoreId.value).replace(/^0+/, '')}
+        onChange={handleChange}
+        style={{ width: '100%' }}
+      />
     </div>
   );
 };
