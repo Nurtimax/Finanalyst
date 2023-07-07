@@ -1,12 +1,5 @@
-import { format } from 'date-fns';
-import { ru } from 'date-fns/locale';
 import dayjs, { Dayjs } from 'dayjs';
 import { IShedule, ISheduleReducer } from '../../types/data';
-
-// interface ITableData {
-//   result: ISheduleReducer[];
-//   columns: Column<IShedule>[];
-// }
 
 function processValue(value: string | Dayjs | null) {
   let stringValue: string;
@@ -122,17 +115,4 @@ export const data = [
       jobType: '',
     },
   },
-];
-
-export const columns = [
-  {
-    Header: 'Doctor',
-    accessor: 'id',
-  },
-  ...createTableData(data).map((item) => {
-    return {
-      Header: format(dayjs(item.date).toDate(), 'EEEE, d MMMM', { locale: ru }),
-      accessor: String(item.date),
-    };
-  }),
 ];
