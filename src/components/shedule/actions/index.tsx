@@ -6,7 +6,9 @@ interface IMainActionsProps {
   [key: string]: unknown;
 }
 
-const StyledMainActions = styled(Box)(() => ({}));
+const StyledMainActions = styled(Box)(() => ({
+  display: 'flex',
+}));
 
 const MainActions: FC<IMainActionsProps> = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -14,6 +16,7 @@ const MainActions: FC<IMainActionsProps> = () => {
   const handleToggle = () => {
     setOpen((prev) => !prev);
   };
+
   return (
     <StyledMainActions>
       <Button variant="outlined" onClick={handleToggle}>

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Box, styled } from '@mui/material';
-import { ISheduleInitialValues } from '../../../types/data';
+import { Box, Divider, styled } from '@mui/material';
+import { ISheduleDates, ISheduleInitialValues } from '../../../types/data';
 import SelectUser from './SelectUser';
 import ActionList from './ActionList';
 import AddTimeField from './AddTimeField';
@@ -10,6 +10,8 @@ interface IContentFieldsProps {
   values: ISheduleInitialValues;
   handleChange: (values: Omit<ISheduleInitialValues, 'date' | 'dates' | 'id'>) => void;
   handleAddDates: () => void;
+  handleDeleteDates: (id: number) => void;
+  handleChangeDates: (id: number, values: Omit<ISheduleDates, 'id'>) => void;
 }
 
 const StyledContentFields = styled(Box)(() => ({
@@ -17,13 +19,19 @@ const StyledContentFields = styled(Box)(() => ({
   gap: '1rem',
 }));
 
-const ContentFields: FC<IContentFieldsProps> = ({ values, handleChange, handleAddDates }) => {
-  console.log(values);
-
+const ContentFields: FC<IContentFieldsProps> = ({
+  values,
+  handleChange,
+  handleAddDates,
+  handleDeleteDates,
+  handleChangeDates,
+}) => {
   return (
     <StyledContentFields>
       <SelectUser handleChange={handleChange} />
-      <ActionList dates={values.dates} />
+      {!!values.dates.length && <Divider />}
+
+      <ActionList values={values} handleDeleteDates={handleDeleteDates} handleChangeDates={handleChangeDates} />
       {!!values.dates.length && <AddTimeField handleAddDates={handleAddDates} />}
     </StyledContentFields>
   );

@@ -21,6 +21,8 @@ const SelectUser: FC<ISelectUserProps> = ({ handleChange }) => {
   const { data } = useAppSelector((state) => state.shedule);
   const { monthColumns } = useAppSelector((state) => state.columns);
 
+  console.log(monthColumns);
+
   return (
     <StyledSelectUser>
       <Autocomplete
