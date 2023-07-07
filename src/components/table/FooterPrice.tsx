@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
+import { fInputPriceMask } from '../../utils/helpers/priceMask';
 
 interface FooterPriceProps {
   header: string;
@@ -20,7 +21,7 @@ const FooterPrice: FC<FooterPriceProps> = ({ header, keys, index }) => {
     return acc;
   }, 0);
 
-  return <div>$ {totalFooterPrice}</div>;
+  return <div>$ {fInputPriceMask(String(totalFooterPrice))}</div>;
 };
 
 export default FooterPrice;
