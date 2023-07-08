@@ -21,6 +21,7 @@ export interface StoreMonthData {
 export interface IShedule {
   id: number;
   dateTime: string | null | Dayjs;
+  dateTimes: Dayjs[];
   dates: ISheduleDates[];
   userData: ISheduleUserData;
   header: string;
