@@ -71,6 +71,7 @@ export const data = [
     id: 1,
     header: '1 декабрь 2023',
     dateTime: '',
+    dateTimes: [],
     dates: [],
     userData: {
       name: 'Nurtilek',
@@ -83,6 +84,7 @@ export const data = [
     id: 2,
     header: '2 декабрь 2023',
     dateTime: '',
+    dateTimes: [],
     dates: [],
     userData: {
       name: 'Samat',
@@ -95,6 +97,7 @@ export const data = [
     id: 3,
     header: '3 декабрь 2023',
     dateTime: '',
+    dateTimes: [],
     dates: [],
     userData: {
       name: 'Adilet',
@@ -107,6 +110,7 @@ export const data = [
     id: 4,
     header: '',
     dateTime: '',
+    dateTimes: [],
     dates: [],
     userData: {
       name: 'Dastan',

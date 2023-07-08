@@ -5,10 +5,11 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ISheduleDates } from '../../../types/data';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 interface IListItemProps extends ISheduleDates {
   [key: string]: unknown;
+  valuesDate: string | null | Dayjs;
   handleDeleteDates: (id: number) => void;
   handleChangeDates: (id: number, values: Omit<ISheduleDates, 'id'>) => void;
 }
@@ -21,7 +22,7 @@ const StyledListItem = styled(Box)(() => ({
   },
 }));
 
-const ListItem: FC<IListItemProps> = ({ handleDeleteDates, id, handleChangeDates, startDate, endDate }) => {
+const ListItem: FC<IListItemProps> = ({ handleDeleteDates, id, handleChangeDates, startDate, endDate, valuesDate }) => {
   return (
     <StyledListItem>
       <IconButton onClick={() => handleDeleteDates(id)}>
@@ -35,7 +36,7 @@ const ListItem: FC<IListItemProps> = ({ handleDeleteDates, id, handleChangeDates
               const startDate: dayjs.Dayjs | null = e[0] as dayjs.Dayjs | null;
               const endDate: dayjs.Dayjs | null = e[1] as dayjs.Dayjs | null;
 
-              handleChangeDates(id, { startDate, endDate });
+              handleChangeDates(id, { startDate, endDate, date: dayjs(valuesDate) });
             }}
             slotProps={{
               textField: ({ position }) => ({
