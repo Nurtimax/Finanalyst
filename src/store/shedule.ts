@@ -18,8 +18,6 @@ const sheduleSlice = createSlice({
     addShedule: (state, action: PayloadAction<ISheduleInitialValues>) => {
       const values = action.payload;
 
-      console.log(values);
-
       state.data = state.data.map((item) => {
         if (Number(values.id) === item.id) {
           return {

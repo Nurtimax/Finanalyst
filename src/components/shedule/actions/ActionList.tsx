@@ -18,7 +18,13 @@ const ActionList: FC<IActionListProps> = ({ values, handleDeleteDates, handleCha
   return (
     <StyledActionList sx={{ maxHeight: values.dates.length > 1 ? '130px' : '100%' }}>
       {values.dates.map((date) => (
-        <ListItem key={date.id} {...date} handleDeleteDates={handleDeleteDates} handleChangeDates={handleChangeDates} />
+        <ListItem
+          key={date.id}
+          {...date}
+          valuesDate={values.date}
+          handleDeleteDates={handleDeleteDates}
+          handleChangeDates={handleChangeDates}
+        />
       ))}
     </StyledActionList>
   );

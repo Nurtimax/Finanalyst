@@ -25,7 +25,6 @@ const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
     initialValues: { date: '', dates: [], id: '' },
     onSubmit: (values, formikHelpers) => {
       dispatch(actionSheduleSlice.addShedule(values));
-      console.log(values);
 
       formikHelpers.resetForm();
       handleToggle();
@@ -36,7 +35,7 @@ const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
     setValues((prev) => ({ ...prev, ...values }));
   };
 
-  const handleChangeDates = (id: number, values: Omit<ISheduleDates, 'id'>) => {
+  const handleChangeDates = (id: number, values: Omit<ISheduleDates, 'id' | 'date'>) => {
     setValues((prev) => ({
       ...prev,
       dates: prev.dates.map((date) => {
@@ -51,7 +50,7 @@ const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
   const handleAddDates = () => {
     setValues((prev) => ({
       ...prev,
-      dates: [...prev.dates, { id: prev.dates.length + 1, startDate: null, endDate: null }],
+      dates: [...prev.dates, { id: prev.dates.length + 1, startDate: null, endDate: null, date: null }],
     }));
   };
 

@@ -32,6 +32,7 @@ export interface ISheduleDates {
   id: number;
   startDate: Dayjs | null;
   endDate: Dayjs | null;
+  date: Dayjs | null;
 }
 
 export interface ISheduleUserData {

@@ -23,15 +23,13 @@ const SheduleTableCell: FC<ISheduleTableCellProps> = ({ id, date }) => {
     <StyledSheduleTableCell>
       {findData ? (
         <>
-          {findData.dateTimes.map((time) => (
+          {findData.dates.map((findDate) => (
             <>
-              {dayjs(time).date() === dayjs(date).date()
-                ? findData.dates.map((date) => (
-                    <Typography>
-                      {getHoursFromDate(dayjs(date.startDate))} - {getHoursFromDate(dayjs(date.endDate))}
-                    </Typography>
-                  ))
-                : null}
+              {dayjs(findDate.date).date() === dayjs(date).date() ? (
+                <Typography>
+                  {getHoursFromDate(dayjs(findDate.startDate))} - {getHoursFromDate(dayjs(findDate.endDate))}
+                </Typography>
+              ) : null}
             </>
           ))}
         </>
