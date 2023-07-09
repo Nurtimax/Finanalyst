@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Financial-Planner
+Financial-Planner is a program designed to assist users in budgeting and managing their finances. It provides functionality that allows users to calculate their monthly expenses and income, as well as obtain an overview of their finances for a selected period.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+1. **Budget Planning:** Financial-Planner enables users to calculate their expenses and income for a given month. By inputting their financial data, users can track their spending and evaluate their budgetary needs accurately.
 
-## Available Scripts
+2. **Financial Calculations:** In addition to budget planning, Financial-Planner serves as a versatile calculator for various financial calculations. Users can compute interest rates on loans or deposits, estimate inflation rates, and perform other financial calculations as required.
 
-In the project directory, you can run:
+3. **Comprehensive Financial Overview:** Financial-Planner allows users to input data for multiple months to obtain a comprehensive view of their finances over a specified period. By summing up all the income and expenses, the program provides an aggregated summary of the user's financial situation.
 
-### `npm start`
+## Getting Started
+To use Financial-Planner, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Clone the Repository:** Clone this repository to your local machine using the following command:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/your-username/Financial-Planner.git
+```
+2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies using the package manager of your choice. For example, if you are using npm, run the following command:
 
-### `npm test`
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Run the Program:** Once the dependencies are installed, execute the program with the following command:
 
-### `npm run build`
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. **Input Data:** Follow the prompts and provide the required information, such as expenses, income, and the desired calculation period.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. **View Results:**  After inputting the necessary data, Financial-Planner will display the calculated results, including budget summaries and financial overviews.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage Examples
+Here are some examples of how you can use Financial-Planner:
 
-### `npm run eject`
+1. Calculate Monthly Budget: Input your income and expenses for a specific month to determine the remaining funds at the end of the month.
+2. Track Finances Over Time: Input your financial data for several months to analyze your overall financial situation and identify trends.
+3. Perform Financial Calculations: Utilize Financial-Planner as a calculator to compute interest rates, inflation rates, or any other financial calculations required.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
+Contributions to Financial-Planner are welcome! If you have any ideas, suggestions, or bug reports, please open an issue on the GitHub repository. We appreciate your feedback and contributions.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When contributing, please ensure to follow the code of conduct and provide clear and concise information about your changes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
+This project is licensed under the MIT License. Feel free to modify and distribute the code as needed.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contact
+If you have any further questions or inquiries about Financial-Planner, you can contact the project maintainer at maksatbeknurtilek@gmail.com.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+___
+Happy budgeting and financial planning with Financial-Planner!
