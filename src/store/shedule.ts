@@ -43,6 +43,23 @@ const sheduleSlice = createSlice({
         return item;
       });
     },
+
+    editSheduleDates: (state, action) => {
+      const { id, userId, values } = action.payload;
+
+      state.data = state.data.map((item) => {
+        if (item.id === userId) {
+          const dates = item.dates.map((date) => {
+            if (date.id === id) {
+              return { ...date, ...values };
+            }
+            return date;
+          });
+          return { ...item, dates };
+        }
+        return item;
+      });
+    },
   },
 });
 
