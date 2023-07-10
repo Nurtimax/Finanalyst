@@ -7,6 +7,8 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Paper,
+  PaperProps,
   styled,
 } from '@mui/material';
 import { ISheduleDates } from '../../types/data';
@@ -16,6 +18,7 @@ import dayjs from 'dayjs';
 import { MultiInputTimeRangeField } from '@mui/x-date-pickers-pro';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { actionSheduleSlice } from '../../store/shedule';
+import Draggable from 'react-draggable';
 
 interface ICellDateDialogProps extends Omit<ISheduleDates, 'date'> {
   [key: string]: unknown;
@@ -23,6 +26,8 @@ interface ICellDateDialogProps extends Omit<ISheduleDates, 'date'> {
   handleDialogToggle: () => void;
   userId: number;
 }
+
+type EditCellDateDialog = Omit<ISheduleDates, 'id' | 'date'>;
 
 const StyledCellDateDialog = styled(Box)(() => ({}));
 
@@ -32,7 +37,13 @@ const StyledDialogActionForm = styled('form')(() => ({
   gap: '0.5rem',
 }));
 
-type EditCellDateDialog = Omit<ISheduleDates, 'id' | 'date'>;
+function PaperComponent(props: PaperProps) {
+  return (
+    <Draggable handle="#draggable-dialog-title" cancel={'[class*="MuiDialogContent-root"]'}>
+      <Paper {...props} />
+    </Draggable>
+  );
+}
 
 const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, userId, startDate, endDate, id }) => {
   const dispatch = useAppDispatch();
@@ -55,8 +66,10 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, us
 
   return (
     <StyledCellDateDialog>
-      <Dialog open={open} onClose={handleDialogToggle}>
-        <DialogTitle>{findUserData?.userData.name} date editing</DialogTitle>
+      <Dialog open={open} onClose={handleDialogToggle} PaperComponent={PaperComponent}>
+        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+          {findUserData?.userData.name} date editing
+        </DialogTitle>
         <DialogContent>
           <DialogContentText>
             To subscribe to this website, please enter your email address here. We will send updates occasionally.
