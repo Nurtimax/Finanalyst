@@ -8,7 +8,7 @@ import {
   Paper,
   styled,
 } from '@mui/material';
-import React, { useEffect, useMemo } from 'react';
+import React, { CSSProperties, useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTable, CellProps, HeaderGroup } from 'react-table';
 import { useAppSelector } from '../../hooks/dispatch';
@@ -16,6 +16,7 @@ import { actionColumns } from '../../store/columns';
 import { IShedule } from '../../types/data';
 import { createTableData } from '../../utils/constants/data';
 import { parseFormatDate } from '../../utils/helpers/formatDate';
+import { stickyStyleWithBorder } from '../../utils/helpers/shedule-table';
 import SheduleTableCell from './SheduleTableCell';
 
 interface Props {}
@@ -29,7 +30,8 @@ interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGro
 }
 
 const StyledTableCell = styled(MuiTableCell)(() => ({
-  minWidth: '7vw',
+  minWidth: '9.5vw',
+  borderRight: '1px solid #F1F3F5',
 }));
 
 const SheduleTable: React.FC<Props> = () => {
@@ -79,9 +81,10 @@ const SheduleTable: React.FC<Props> = () => {
               return (
                 <TableRow {...headerGroup.getHeaderGroupProps()} key={headerGroup.headers[index].id}>
                   {headerGroup.headers.map((column: CustomHeaderGroup<IShedule>, index) => {
+                    const style: CSSProperties = stickyStyleWithBorder(index);
                     return (
                       <StyledTableCell
-                        {...column.getHeaderProps()}
+                        {...column.getHeaderProps({ style })}
                         component="th"
                         scope="row"
                         key={column.Header?.toString()}
@@ -100,7 +103,12 @@ const SheduleTable: React.FC<Props> = () => {
               return (
                 <TableRow {...row.getRowProps({})} key={index}>
                   {row.cells.map((cell, index) => (
-                    <StyledTableCell {...cell.getCellProps({})} component="th" scope="row" key={index}>
+                    <StyledTableCell
+                      {...cell.getCellProps({ style: stickyStyleWithBorder(index) })}
+                      component="th"
+                      scope="row"
+                      key={index}
+                    >
                       {cell.render('Cell')}
                     </StyledTableCell>
                   ))}

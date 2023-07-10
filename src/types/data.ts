@@ -1,6 +1,8 @@
 import { Dayjs } from 'dayjs';
 import { CellProps } from 'react-table';
 
+export type LimitDate = Dayjs | null;
+
 export interface Store {
   id: number;
   name: string;
@@ -20,7 +22,7 @@ export interface StoreMonthData {
 
 export interface IShedule {
   id: number;
-  dateTime: string | null | Dayjs;
+  dateTime: string | LimitDate;
   dateTimes: Dayjs[];
   dates: ISheduleDates[];
   userData: ISheduleUserData;
@@ -30,9 +32,9 @@ export interface IShedule {
 
 export interface ISheduleDates {
   id: number;
-  startDate: Dayjs | null;
-  endDate: Dayjs | null;
-  date: Dayjs | null;
+  startDate: LimitDate;
+  endDate: LimitDate;
+  date: LimitDate;
 }
 
 export interface ISheduleUserData {
@@ -43,7 +45,7 @@ export interface ISheduleUserData {
 }
 
 export interface ISheduleReducer {
-  date: Dayjs | null;
+  date: LimitDate;
   dates: ISheduleDates[];
   id: number;
 }

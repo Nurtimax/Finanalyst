@@ -32,6 +32,17 @@ const sheduleSlice = createSlice({
         return item;
       });
     },
+    removeSheduleDates: (state, action) => {
+      const { id, userId } = action.payload;
+
+      state.data = state.data.map((item) => {
+        if (item.id === userId) {
+          const dates = item.dates.filter((date) => date.id !== id);
+          return { ...item, dates };
+        }
+        return item;
+      });
+    },
   },
 });
 
