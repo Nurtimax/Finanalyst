@@ -14,7 +14,7 @@ To use Financial-Planner, follow these steps:
 1. **Clone the Repository:** Clone this repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/your-username/Financial-Planner.git
+git clone [https://github.com/your-username/Financial-Planner.git](https://github.com/Nurtimax/Financial-Planner.git)
 ```
 2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies using the package manager of your choice. For example, if you are using npm, run the following command:
 
