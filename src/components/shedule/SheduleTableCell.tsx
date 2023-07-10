@@ -1,8 +1,8 @@
 import React, { FC, useMemo } from 'react';
-import { Box, styled, Typography } from '@mui/material';
+import { Box, styled } from '@mui/material';
 import { useAppSelector } from '../../hooks/dispatch';
-import { getHoursFromDate } from '../../utils/helpers/formatDate';
 import dayjs, { Dayjs } from 'dayjs';
+import CellDate from './CellDate';
 
 interface ISheduleTableCellProps {
   [key: string]: unknown;
@@ -10,7 +10,10 @@ interface ISheduleTableCellProps {
   date: Dayjs | null;
 }
 
-const StyledSheduleTableCell = styled(Box)(() => ({}));
+const StyledSheduleTableCell = styled(Box)(() => ({
+  maxHeight: '62px',
+  overflow: 'auto',
+}));
 
 const SheduleTableCell: FC<ISheduleTableCellProps> = ({ id, date }) => {
   const { data } = useAppSelector((state) => state.shedule);
@@ -26,9 +29,7 @@ const SheduleTableCell: FC<ISheduleTableCellProps> = ({ id, date }) => {
           {findData.dates.map((findDate) => (
             <>
               {dayjs(findDate.date).date() === dayjs(date).date() ? (
-                <Typography>
-                  {getHoursFromDate(dayjs(findDate.startDate))} - {getHoursFromDate(dayjs(findDate.endDate))}
-                </Typography>
+                <CellDate key={findDate.id} {...findDate} userId={id} />
               ) : null}
             </>
           ))}
