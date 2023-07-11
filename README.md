@@ -44,9 +44,6 @@ Contributions to Financial-Planner are welcome! If you have any ideas, suggestio
 
 When contributing, please ensure to follow the code of conduct and provide clear and concise information about your changes.
 
-## License
-This project is licensed under the MIT License. Feel free to modify and distribute the code as needed.
-
 ## Contact
 If you have any further questions or inquiries about Financial-Planner, you can contact the project maintainer at maksatbeknurtilek@gmail.com.
 
