@@ -6,6 +6,7 @@ import {
   TableCell as MuiTableCell,
   TableBody,
   Paper,
+  styled,
 } from '@mui/material';
 import React, { useMemo } from 'react';
 import { useTable, Column, CellProps, FooterProps, HeaderGroup } from 'react-table';
@@ -28,6 +29,8 @@ interface MyFooterProps extends FooterProps<StoreMonthData> {
 interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGroup<T> {
   style?: React.CSSProperties;
 }
+
+const StyledMuiTableCell = styled(MuiTableCell)(() => ({}));
 
 const Table: React.FC<Props> = () => {
   const columns = useMemo<Column<StoreMonthData>[]>(
@@ -57,7 +60,7 @@ const Table: React.FC<Props> = () => {
       {
         Header: 'Total',
         accessor: (data: StoreMonthData) => data.months.map((item) => item.id),
-        Cell: ({ row, rows, columns, column }: MyCellProps) => {
+        Cell: ({ row }: MyCellProps) => {
           return <Total original={row.original} />;
         },
         Footer: (props: MyFooterProps) => {
@@ -78,21 +81,21 @@ const Table: React.FC<Props> = () => {
   return (
     <>
       <TableContainer component={Paper}>
-        <MuiTable sx={{ minWidth: 650 }} {...getTableProps()} aria-label="simple table">
+        <MuiTable sx={{ minWidth: 650 }} size="small" {...getTableProps()} aria-label="simple table">
           <TableHead>
             {headerGroups.map((headerGroup, index) => {
               return (
                 <TableRow {...headerGroup.getHeaderGroupProps()} key={headerGroup.headers[index].id}>
                   {headerGroup.headers.map((column: CustomHeaderGroup<StoreMonthData>, index) => {
                     return (
-                      <MuiTableCell
+                      <StyledMuiTableCell
                         {...column.getHeaderProps()}
                         component="th"
                         scope="row"
                         key={column.Header?.toString()}
                       >
                         {column.render('Header')}
-                      </MuiTableCell>
+                      </StyledMuiTableCell>
                     );
                   })}
                 </TableRow>
@@ -105,9 +108,9 @@ const Table: React.FC<Props> = () => {
               return (
                 <TableRow {...row.getRowProps({})} key={index}>
                   {row.cells.map((cell, index) => (
-                    <MuiTableCell {...cell.getCellProps({})} component="th" scope="row" key={index}>
+                    <StyledMuiTableCell {...cell.getCellProps({})} component="th" scope="row" key={index}>
                       {cell.render('Cell')}
-                    </MuiTableCell>
+                    </StyledMuiTableCell>
                   ))}
                 </TableRow>
               );
@@ -118,9 +121,9 @@ const Table: React.FC<Props> = () => {
               <TableRow key={index}>
                 {headerGroup.headers.map((column: CustomHeaderGroup<StoreMonthData>, index) => {
                   return (
-                    <MuiTableCell {...column.getHeaderProps()} key={index}>
+                    <StyledMuiTableCell {...column.getHeaderProps()} key={index}>
                       {column.render('Footer')}
-                    </MuiTableCell>
+                    </StyledMuiTableCell>
                   );
                 })}
               </TableRow>

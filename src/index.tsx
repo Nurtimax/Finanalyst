@@ -6,12 +6,15 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';
+import Theme from './theme';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <Provider store={store}>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <App />
+      <Theme>
+        <App />
+      </Theme>
     </LocalizationProvider>
   </Provider>
 );

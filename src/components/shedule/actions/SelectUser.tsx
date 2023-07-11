@@ -2,7 +2,8 @@ import React, { FC } from 'react';
 import { Autocomplete, Box, styled, TextField } from '@mui/material';
 import { IShedule, ISheduleInitialValues, ISheduleReducer } from '../../../types/data';
 import { useAppSelector } from '../../../hooks/dispatch';
-import { parseFormatDate } from '../../../utils/helpers/formatDate';
+import { parseFormatDate, parseStringFormat } from '../../../utils/helpers/formatDate';
+import dayjs from 'dayjs';
 
 interface ISelectUserProps {
   [key: string]: unknown;
@@ -36,14 +37,14 @@ const SelectUser: FC<ISelectUserProps> = ({ handleChange }) => {
       <Autocomplete
         onChange={(event, newValue) => {
           handleChange({
-            date: newValue?.date,
+            date: newValue?.date ? parseStringFormat(new Date(newValue?.date)) : '',
             dates: newValue?.dates.length ? [...newValue.dates] : [{ id: 1, startDate: null, endDate: null }],
           });
         }}
         id="controllable-states-demo"
         options={monthColumns}
         renderInput={(params) => <TextField {...params} label="Choose day" />}
-        getOptionLabel={(option: ISheduleReducer) => String(parseFormatDate(option.date))}
+        getOptionLabel={(option: ISheduleReducer) => String(parseFormatDate(dayjs(option.date)))}
         fullWidth
       />
     </StyledSelectUser>

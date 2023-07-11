@@ -52,8 +52,8 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, us
 
   const { values, setValues, handleSubmit } = useFormik<EditCellDateDialog>({
     initialValues: {
-      startDate: dayjs(startDate),
-      endDate: dayjs(endDate),
+      startDate: startDate,
+      endDate: endDate,
     },
     onSubmit: (values) => {
       dispatch(actionSheduleSlice.editSheduleDates({ id, userId, values }));
@@ -76,10 +76,10 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, us
           </DialogContentText>
           <DemoContainer components={['MultiInputTimeRangeField', 'SingleInputTimeRangeField']}>
             <MultiInputTimeRangeField
-              value={[values.startDate, values.endDate]}
+              value={[dayjs(values.startDate), dayjs(values.endDate)]}
               onChange={(e) => {
-                const startDate: dayjs.Dayjs | null = e[0] as dayjs.Dayjs | null;
-                const endDate: dayjs.Dayjs | null = e[1] as dayjs.Dayjs | null;
+                const startDate: Date | null = e[0] as Date | null;
+                const endDate: Date | null = e[1] as Date | null;
 
                 setValues({ endDate, startDate });
               }}

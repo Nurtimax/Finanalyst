@@ -1,5 +1,6 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { IShedule, ISheduleReducer } from '../../types/data';
+import { parseStringFormat } from '../helpers/formatDate';
 
 function processValue(value: string | Dayjs | null) {
   let stringValue: string;
@@ -34,7 +35,7 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
   }
 
   const dates = data.map((dateStr) => {
-    const [month, day, year] = processValue(dateStr.dateTime);
+    const [month, day, year] = processValue('');
     return { date: new Date(`20${year}-${month}-${day}`), dates: dateStr.dates, id: dateStr.id };
   });
 
@@ -51,12 +52,20 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
     const matchingDates = dates.find((date) => date.date.getDate() === dateTime.getDate());
 
     if (matchingDates) {
-      const newSheduleReducer: ISheduleReducer = { date: dayjs(obj), dates: matchingDates.dates, id: matchingDates.id };
+      const newSheduleReducer: ISheduleReducer = {
+        date: parseStringFormat(dayjs(obj).toDate()),
+        dates: matchingDates.dates,
+        id: matchingDates.id,
+      };
       previousValue.push(newSheduleReducer);
       return previousValue;
     }
 
-    const newSheduleReducer: ISheduleReducer = { date: dayjs(obj), dates: [], id: Math.round(Math.random() * 1000) };
+    const newSheduleReducer: ISheduleReducer = {
+      date: parseStringFormat(dayjs(obj).toDate()),
+      dates: [],
+      id: Math.round(Math.random() * 1000),
+    };
 
     previousValue.push(newSheduleReducer);
 
