@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import price from './price';
 import shedule from './shedule';
 import columns from './columns';
+import financial from './financial-planner';
 
 export const store = configureStore({
   reducer: {
     price,
     shedule,
     columns,
+    financial,
   },
 });
 
