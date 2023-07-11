@@ -12,7 +12,7 @@ const StyledShedule = styled(Box)(() => ({
   gap: '2rem',
 }));
 
-const Shedule: FC<ISheduleProps> = () => {
+const MainShedule: FC<ISheduleProps> = () => {
   return (
     <StyledShedule>
       <MainActions />
@@ -21,4 +21,4 @@ const Shedule: FC<ISheduleProps> = () => {
   );
 };
 
-export default Shedule;
+export default MainShedule;

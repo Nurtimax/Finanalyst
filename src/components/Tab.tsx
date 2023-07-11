@@ -2,8 +2,9 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import Table from './table/Table';
-import Shedule from './shedule';
+import Shedule from '../containers/Shedule';
+import FinancialPlanner from '../containers/FinancialPlanner';
+import NewTable from '../containers/NewTable';
 
 interface ITabPanel {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ function a11yProps(index: number) {
 }
 
 export default function BasicTabs() {
-  const [value, setValue] = React.useState(1);
+  const [value, setValue] = React.useState(2);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -47,16 +48,17 @@ export default function BasicTabs() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Financial Planner" {...a11yProps(0)} />
           <Tab label="Shedule" {...a11yProps(1)} />
+          <Tab label="new Table" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Table />
+        <FinancialPlanner />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Shedule />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <NewTable />
       </TabPanel>
     </Box>
   );
