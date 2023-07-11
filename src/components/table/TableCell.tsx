@@ -1,4 +1,5 @@
-import { ChangeEvent, FC } from 'react';
+import { TextField } from '@mui/material';
+import { ChangeEvent, FC, FocusEventHandler, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/dispatch';
 import { actionPriceSlice } from '../../store/price';
 
@@ -19,6 +20,7 @@ interface subNewStoreValues {
 }
 
 const TableCell: FC<TableCellProps> = ({ id }) => {
+  const [value, setValue] = useState(0);
   const { data } = useAppSelector((state) => state.price);
 
   const dispatch = useAppDispatch();
@@ -38,29 +40,50 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
     return { ...acc, ...result };
   }, {});
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!isNaN(Number(e.target.value))) {
+  const handleBlur: FocusEventHandler<HTMLInputElement> = (e) => {
+    if (!isNaN(Number(value))) {
       if (newStoreId.id) {
         dispatch(
           actionPriceSlice.changeValue({
             id,
             storeId: newStoreId?.id,
-            value: Number(e.target.value),
+            value,
           })
         );
       }
     }
   };
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(Number(e.target.value));
+  };
+
+  useEffect(() => {
+    if (!isNaN(Number(value))) {
+      if (newStoreId.id) {
+        dispatch(
+          actionPriceSlice.changeValue({
+            id,
+            storeId: newStoreId?.id,
+            value,
+          })
+        );
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
+
   return (
-    <div>
-      <input
+    <>
+      <TextField
+        variant="outlined"
         type="number"
-        value={String(newStoreId.value).replace(/^0+/, '')}
+        id="financial-planner"
+        value={String(value).replace(/^0+/, '')}
         onChange={handleChange}
-        style={{ width: '100%' }}
+        onBlur={handleBlur}
       />
-    </div>
+    </>
   );
 };
 

@@ -1,13 +1,13 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, Fragment, useMemo } from 'react';
 import { Box, styled } from '@mui/material';
 import { useAppSelector } from '../../hooks/dispatch';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import CellDate from './CellDate';
 
 interface ISheduleTableCellProps {
   [key: string]: unknown;
   id: number;
-  date: Dayjs | null;
+  date: string | Date;
 }
 
 const StyledSheduleTableCell = styled(Box)(() => ({
@@ -30,7 +30,9 @@ const SheduleTableCell: FC<ISheduleTableCellProps> = ({ id, date }) => {
             <>
               {dayjs(findDate.date).date() === dayjs(date).date() ? (
                 <CellDate key={findDate.id} {...findDate} userId={id} />
-              ) : null}
+              ) : (
+                <Fragment key={findDate.id} />
+              )}
             </>
           ))}
         </>

@@ -15,3 +15,8 @@ export const parseFormatDate = (date: Dayjs | null | string): string => {
 export const getHoursFromDate = (date: dayjs.Dayjs): string => {
   return date.format('HH:mm');
 };
+
+export const parseStringFormat = (value: Date): string => {
+  const parseDaysJsFormat = dayjs(value);
+  return parseDaysJsFormat.format('YYYY-MM-DD');
+};

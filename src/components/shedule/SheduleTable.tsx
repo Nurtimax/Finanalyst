@@ -8,7 +8,8 @@ import {
   Paper,
   styled,
 } from '@mui/material';
-import React, { CSSProperties, useEffect, useMemo } from 'react';
+import dayjs from 'dayjs';
+import React, { CSSProperties, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTable, CellProps, HeaderGroup } from 'react-table';
 import { useAppSelector } from '../../hooks/dispatch';
@@ -36,41 +37,42 @@ const StyledTableCell = styled(MuiTableCell)(() => ({
 
 const SheduleTable: React.FC<Props> = () => {
   const { data } = useAppSelector((state) => state.shedule);
-  const { columns } = useAppSelector((state) => state.columns);
 
   const dispatch = useDispatch();
 
   const tableData = useMemo(() => data, [data]);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable<IShedule>({
-    columns,
-    data: tableData,
-  });
-
-  useEffect(() => {
+  const columns = useMemo(() => {
     const tableColumns = createTableData(data);
 
-    const columns = [
+    const tableColumn = [
       {
         Header: 'Doctor',
         accessor: 'userData.name',
       },
-      ...tableColumns.map((item) => {
+      ...tableColumns.map((item, index) => {
+        const uniqueKey = `cell-${item.date}-${index}`;
         return {
-          Header: parseFormatDate(item.date),
+          Header: parseFormatDate(dayjs(item.date)),
           accessor: String(item.date),
           Cell: ({ cell }: MyCellProps) => {
             const id = cell.row.original.id;
-            return <SheduleTableCell id={id} date={item.date} />;
+
+            return <SheduleTableCell key={uniqueKey} id={id} date={item.date} />;
           },
         };
       }),
     ];
 
-    dispatch(actionColumns.columnsEffect(columns));
     dispatch(actionColumns.monthColumnsEffect(tableColumns));
+    return tableColumn;
     //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable<IShedule>({
+    columns,
+    data: tableData,
+  });
 
   return (
     <>

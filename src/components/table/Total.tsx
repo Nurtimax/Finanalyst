@@ -1,3 +1,4 @@
+import { Box, styled, Typography } from '@mui/material';
 import { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
 import { StoreMonthData } from '../../types/data';
@@ -6,6 +7,19 @@ import { fInputPriceMask } from '../../utils/helpers/priceMask';
 interface TotalProps {
   original: StoreMonthData;
 }
+
+const StyledTotal = styled(Box)(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  gap: '0.2rem',
+  minWidth: '80px',
+
+  '& .total__price': {
+    overflow: 'auto',
+    maxWidth: '80px',
+  },
+}));
 
 const Total: FC<TotalProps> = ({ original }) => {
   const { data } = useAppSelector((state) => state.price);
@@ -22,7 +36,14 @@ const Total: FC<TotalProps> = ({ original }) => {
     return acc;
   }, 0);
 
-  return <div>Total: $ {fInputPriceMask(String(totalPrice))}</div>;
+  return (
+    <StyledTotal>
+      $
+      <Typography variant="body1" className="total__price">
+        {fInputPriceMask(String(totalPrice))}
+      </Typography>
+    </StyledTotal>
+  );
 };
 
 export default Total;

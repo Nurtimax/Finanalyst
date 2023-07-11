@@ -35,7 +35,7 @@ const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
     setValues((prev) => ({ ...prev, ...values }));
   };
 
-  const handleChangeDates = (id: number, values: Omit<ISheduleDates, 'id' | 'date'>) => {
+  const handleChangeDates = (id: number, values: Omit<ISheduleDates, 'id'>) => {
     setValues((prev) => ({
       ...prev,
       dates: prev.dates.map((date) => {
