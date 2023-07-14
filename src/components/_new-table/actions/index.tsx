@@ -7,7 +7,7 @@ interface INewFinancialActionsProps {
 }
 
 const StyledNewFinancialActions = styled(Box)(() => ({
-  padding: '1rem',
+  padding: '1rem 0',
   display: 'grid',
 }));
 

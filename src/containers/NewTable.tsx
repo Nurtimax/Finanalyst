@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, styled } from '@mui/material';
+import { Box, Container, styled } from '@mui/material';
 import MainNewTable from '../components/_new-table';
 
 interface INewTableProps {
@@ -11,7 +11,9 @@ const StyledNewTable = styled(Box)(() => ({}));
 const NewTable: FC<INewTableProps> = () => {
   return (
     <StyledNewTable>
-      <MainNewTable />
+      <Container>
+        <MainNewTable />
+      </Container>
     </StyledNewTable>
   );
 };

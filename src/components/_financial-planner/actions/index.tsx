@@ -78,7 +78,7 @@ const data = {
 
 const StyledFinancialActions = styled(Box)(() => ({
   border: '1px solid',
-  padding: '1rem',
+  padding: '1rem 0',
 }));
 
 const FinancialActions: FC<IFinancialActionsProps> = () => {
