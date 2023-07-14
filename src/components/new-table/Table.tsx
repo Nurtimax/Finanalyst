@@ -98,8 +98,8 @@ const NewTable: React.FC<Props> = () => {
 
   return (
     <>
-      <TableContainer component={Paper}>
-        <MuiTable sx={{ minWidth: 650 }} size="small" {...getTableProps()} aria-label="simple table">
+      <TableContainer component={Paper} sx={{ maxHeight: '75vh' }}>
+        <MuiTable stickyHeader sx={{ minWidth: 650 }} size="small" {...getTableProps()} aria-label="simple table">
           <TableHead>
             {headerGroups.map((headerGroup, index) => {
               return (
@@ -136,7 +136,7 @@ const NewTable: React.FC<Props> = () => {
           </TableBody>
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
-              <TableRow key={index}>
+              <TableRow key={index} id="table-head-sticky-footer">
                 {headerGroup.headers.map((column: CustomHeaderGroup<StoreMonthData>, index) => {
                   return (
                     <StyledMuiTableCell {...column.getHeaderProps()} key={index}>
