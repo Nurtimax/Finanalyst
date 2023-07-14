@@ -78,7 +78,7 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
       <TextField
         variant="outlined"
         type="number"
-        id="financial-planner"
+        id="disabledPadding"
         value={String(value).replace(/^0+/, '')}
         onChange={handleChange}
         onBlur={handleBlur}

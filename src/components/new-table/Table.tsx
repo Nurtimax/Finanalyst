@@ -33,7 +33,12 @@ interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGro
   style?: React.CSSProperties;
 }
 
-const StyledMuiTableCell = styled(MuiTableCell)(() => ({}));
+const StyledMuiTableCell = styled(MuiTableCell)(() => ({
+  padding: '6px 0',
+  '&:first-of-type': {
+    padding: '6px 0 6px 8px',
+  },
+}));
 
 const NewTable: React.FC<Props> = () => {
   const { data } = useAppSelector((state) => state.financial);

@@ -30,7 +30,12 @@ interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGro
   style?: React.CSSProperties;
 }
 
-const StyledMuiTableCell = styled(MuiTableCell)(() => ({}));
+const StyledMuiTableCell = styled(MuiTableCell)(() => ({
+  padding: '6px 0',
+  '&:first-of-type': {
+    padding: '6px 0 6px 8px',
+  },
+}));
 
 const Table: React.FC<Props> = () => {
   const columns = useMemo<Column<StoreMonthData>[]>(
@@ -80,7 +85,7 @@ const Table: React.FC<Props> = () => {
 
   return (
     <>
-      <TableContainer component={Paper} sx={{ maxHeight: '75vh' }}>
+      <TableContainer component={Paper} sx={{ maxHeight: '90vh' }}>
         <MuiTable sx={{ minWidth: 650 }} stickyHeader size="small" {...getTableProps()} aria-label="simple table">
           <TableHead>
             {headerGroups.map((headerGroup, index) => {

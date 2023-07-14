@@ -6,7 +6,7 @@ type TMuiTableRow = {
   variants?: ComponentsVariants['MuiTableRow'];
 };
 
-export const MuiTableRow: TMuiTableRow = {
+const MuiTableRow: TMuiTableRow = {
   variants: [
     {
       props: { id: 'table-head-sticky-footer' },
@@ -17,3 +17,5 @@ export const MuiTableRow: TMuiTableRow = {
     },
   ],
 };
+
+export default MuiTableRow;

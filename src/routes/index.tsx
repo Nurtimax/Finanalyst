@@ -1,8 +1,13 @@
 import React, { FC } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import Account from '../containers/Account';
 import FinancialPlanner from '../containers/FinancialPlanner';
+import LogOut from '../containers/LogOut';
 import NewTable from '../containers/NewTable';
+import Profile from '../containers/Profile';
 import Shedule from '../containers/Shedule';
+import SignIn from '../containers/SignIn';
+import SignOut from '../containers/SignUp';
 import { Layout } from '../layout';
 import { ROUTES } from './paths';
 
@@ -20,8 +25,13 @@ const Routes: FC<IRoutesProps> = () => {
         { path: ROUTES.financialPlanner, element: <FinancialPlanner /> },
         { path: ROUTES.newTable, element: <NewTable /> },
         { path: ROUTES.shedule, element: <Shedule /> },
+        { path: ROUTES.profile, element: <Profile /> },
+        { path: ROUTES.account, element: <Account /> },
       ],
     },
+    { path: ROUTES.logout, element: <LogOut /> },
+    { path: ROUTES.logIn, element: <SignIn /> },
+    { path: ROUTES.register, element: <SignOut /> },
     { path: '*', element: 'Not Found Page' },
   ]);
 

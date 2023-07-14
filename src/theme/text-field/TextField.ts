@@ -6,18 +6,26 @@ type TMuiTextField = {
   variants?: ComponentsVariants['MuiTextField'];
 };
 
-export const MuiTextField: TMuiTextField = {
+const MuiTextField: TMuiTextField = {
   styleOverrides: {
     root: {},
   },
   variants: [
     {
-      props: { variant: 'outlined', id: 'financial-planner' },
+      props: { variant: 'outlined', id: 'disabledPadding' },
       style: ({ theme }) => ({
         '& input': {
           padding: '4px 0 5px 5px',
         },
       }),
     },
+    {
+      props: {},
+      style: ({ theme }) => ({
+        padding: '8px',
+      }),
+    },
   ],
 };
+
+export default MuiTextField;
