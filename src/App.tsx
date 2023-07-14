@@ -1,13 +1,9 @@
 import React from 'react';
 import './App.css';
-import BasicTabs from './components/Tab';
+import Routes from './routes';
 
 function App() {
-  return (
-    <div className="App">
-      <BasicTabs />
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;
