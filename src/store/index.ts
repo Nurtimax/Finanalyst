@@ -3,6 +3,7 @@ import price from './price';
 import shedule from './shedule';
 import columns from './columns';
 import financial from './financial-planner';
+import auth from './authentication';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     shedule,
     columns,
     financial,
+    auth,
   },
 });
 

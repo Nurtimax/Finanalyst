@@ -6,7 +6,7 @@ type TMuiContainer = {
   variants?: ComponentsVariants['MuiContainer'];
 };
 
-export const MuiContainer: TMuiContainer = {
+const MuiContainer: TMuiContainer = {
   styleOverrides: {
     maxWidthLg: {
       '&.MuiContainer-maxWidthLg': {
@@ -15,3 +15,5 @@ export const MuiContainer: TMuiContainer = {
     },
   },
 };
+
+export default MuiContainer;
