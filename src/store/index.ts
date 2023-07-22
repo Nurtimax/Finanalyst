@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import price from './price';
-import shedule from './shedule';
-import columns from './columns';
-import financial from './financial-planner';
-import auth from './authentication';
+import price from './slice/price';
+import shedule from './slice/shedule';
+import columns from './slice/columns';
+import financial from './slice/financial-planner';
+import auth from './slice/authentication';
 
 export const store = configureStore({
   reducer: {

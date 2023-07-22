@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ISheduleReducer } from '../types/data';
+import { ISheduleReducer } from '../../types/data';
 
 interface InitialState {
   monthColumns: ISheduleReducer[];

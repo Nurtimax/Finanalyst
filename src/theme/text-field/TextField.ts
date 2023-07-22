@@ -20,9 +20,11 @@ const MuiTextField: TMuiTextField = {
       }),
     },
     {
-      props: {},
+      props: { className: 'form-field' },
       style: ({ theme }) => ({
-        padding: '8px',
+        '& input': {
+          padding: '8px',
+        },
       }),
     },
   ],

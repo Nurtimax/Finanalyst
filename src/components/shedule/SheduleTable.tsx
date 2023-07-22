@@ -13,7 +13,7 @@ import React, { CSSProperties, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTable, CellProps, HeaderGroup } from 'react-table';
 import { useAppSelector } from '../../hooks/dispatch';
-import { actionColumns } from '../../store/columns';
+import { actionColumns } from '../../store/slice/columns';
 import { IShedule } from '../../types/data';
 import { createTableData } from '../../utils/constants/data';
 import { parseFormatDate } from '../../utils/helpers/formatDate';

@@ -17,8 +17,8 @@ import { useFormik } from 'formik';
 import dayjs from 'dayjs';
 import { MultiInputTimeRangeField } from '@mui/x-date-pickers-pro';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { actionSheduleSlice } from '../../store/shedule';
 import Draggable from 'react-draggable';
+import { actionSheduleSlice } from 'store/slice/shedule';
 
 interface ICellDateDialogProps extends Omit<ISheduleDates, 'date'> {
   [key: string]: unknown;

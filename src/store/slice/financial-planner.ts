@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StoreMonthData } from '../types/data';
+import { StoreMonthData } from '../../types/data';
 
 interface InitialState {
   data: StoreMonthData[];

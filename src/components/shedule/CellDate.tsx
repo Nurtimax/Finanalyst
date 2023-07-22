@@ -6,8 +6,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import { ISheduleDates } from '../../types/data';
 import { useDispatch } from 'react-redux';
-import { actionSheduleSlice } from '../../store/shedule';
 import CellDateDialog from './CellDateDialog';
+import { actionSheduleSlice } from 'store/slice/shedule';
 
 interface ICellDateProps extends ISheduleDates {
   [key: string]: unknown;

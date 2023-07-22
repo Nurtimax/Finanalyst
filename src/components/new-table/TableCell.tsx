@@ -1,7 +1,7 @@
 import { FormControl, FormLabel, styled, TextField, Typography } from '@mui/material';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { actionFinancialPlanner } from 'store/slice/financial-planner';
 import { useAppDispatch } from '../../hooks/dispatch';
-import { actionFinancialPlanner } from '../../store/financial-planner';
 
 export interface TableCellProps {
   name: string;

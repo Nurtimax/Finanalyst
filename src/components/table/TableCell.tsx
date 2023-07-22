@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
-import { ChangeEvent, FC, FocusEventHandler, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { actionPriceSlice } from 'store/slice/price';
 import { useAppDispatch, useAppSelector } from '../../hooks/dispatch';
-import { actionPriceSlice } from '../../store/price';
 
 export interface TableCellProps {
   value: number;
@@ -40,20 +40,6 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
     return { ...acc, ...result };
   }, {});
 
-  const handleBlur: FocusEventHandler<HTMLInputElement> = (e) => {
-    if (!isNaN(Number(value))) {
-      if (newStoreId.id) {
-        dispatch(
-          actionPriceSlice.changeValue({
-            id,
-            storeId: newStoreId?.id,
-            value,
-          })
-        );
-      }
-    }
-  };
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(Number(e.target.value));
   };
@@ -81,7 +67,6 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
         id="disabledPadding"
         value={String(value).replace(/^0+/, '')}
         onChange={handleChange}
-        onBlur={handleBlur}
       />
     </>
   );
