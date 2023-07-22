@@ -18,6 +18,14 @@ const StyledFormLabel = styled(FormLabel)(() => ({
   },
 }));
 
+const StyledFormControl = styled(FormControl)(() => ({
+  padding: '3px',
+}));
+
+const StyledTextField = styled(TextField)(() => ({
+  padding: '3px 0',
+}));
+
 const TableCell: FC<TableCellProps> = ({ month, name, storeId, monthId }) => {
   const [value, setValue] = useState(0);
 
@@ -33,7 +41,7 @@ const TableCell: FC<TableCellProps> = ({ month, name, storeId, monthId }) => {
   }, [value]);
 
   return (
-    <FormControl>
+    <StyledFormControl>
       <StyledFormLabel htmlFor="number">
         <Typography className="text" variant="body2">
           {name}
@@ -42,14 +50,14 @@ const TableCell: FC<TableCellProps> = ({ month, name, storeId, monthId }) => {
           {month}
         </Typography>
       </StyledFormLabel>
-      <TextField
+      <StyledTextField
         variant="outlined"
         type="number"
         id="disabledPadding"
         value={String(value).replace(/^0+/, '')}
         onChange={handleChange}
       />
-    </FormControl>
+    </StyledFormControl>
   );
 };
 
