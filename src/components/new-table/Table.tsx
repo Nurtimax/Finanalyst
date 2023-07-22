@@ -34,7 +34,7 @@ interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGro
 }
 
 const StyledMuiTableCell = styled(MuiTableCell)(() => ({
-  padding: '6px 0',
+  padding: '0',
   '&:first-of-type': {
     padding: '6px 0 6px 8px',
   },
