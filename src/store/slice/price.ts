@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { data } from '../utils/general/data';
-import { StoreMonthData } from '../types/data';
-import { TableCellProps } from '../components/table/TableCell';
+import { data } from '../../utils/general/data';
+import { StoreMonthData } from '../../types/data';
+import { TableCellProps } from '../../components/table/TableCell';
 
 export interface CounterState {
   data: StoreMonthData[];

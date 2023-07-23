@@ -12,8 +12,8 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { useAppDispatch, useAppSelector } from '../../../hooks/dispatch';
-import { actionFinancialPlanner } from '../../../store/financial-planner';
 import { generateNewStoreId } from '../../../utils/helpers/generate-new-store';
+import { actionFinancialPlanner } from 'store/slice/financial-planner';
 
 interface IAddStoreDialogProps {
   [key: string]: unknown;

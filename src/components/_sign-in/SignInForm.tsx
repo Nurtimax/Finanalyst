@@ -2,12 +2,15 @@ import React, { FC } from 'react';
 import { Box, Button, FormControl, FormLabel, styled, TextField } from '@mui/material';
 import FormHeadlines from './FormHeadlines';
 import { useNavigate } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { useAppDispatch } from 'hooks/dispatch';
+import { SignInThunk } from 'store/thunk/authentication-thunk';
 
 interface ISignInFormProps {
   [key: string]: unknown;
 }
 
-const StyledSignInForm = styled(Box)(() => ({
+const StyledSignInForm = styled('form')(() => ({
   width: '30vw',
   background: '#fff',
   padding: '0.5rem',
@@ -23,28 +26,58 @@ const StyledFormAction = styled(Box)(() => ({
 }));
 
 const SignInForm: FC<ISignInFormProps> = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const { values, handleChange, handleSubmit } = useFormik({
+    initialValues: { email: '', password: '' },
+    onSubmit: (values, formikHelpers) => {
+      dispatch(SignInThunk(values))
+        .unwrap()
+        .then(() => {
+          navigate('/');
+          formikHelpers.resetForm();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  });
 
   const handleCancel = () => {
     navigate(-1);
   };
 
   return (
-    <StyledSignInForm>
+    <StyledSignInForm onSubmit={handleSubmit}>
       <FormHeadlines />
       <FormControl fullWidth>
         <FormLabel htmlFor="email">Email</FormLabel>
-        <TextField variant="outlined" id="form-field" name="email" type="email" />
+        <TextField
+          variant="outlined"
+          className="form-field"
+          name="email"
+          type="email"
+          value={values.email}
+          onChange={handleChange}
+        />
       </FormControl>
       <FormControl fullWidth>
         <FormLabel htmlFor="password">Password</FormLabel>
-        <TextField variant="outlined" id="form-field" name="password" />
+        <TextField
+          variant="outlined"
+          className="form-field"
+          name="password"
+          type="password"
+          value={values.password}
+          onChange={handleChange}
+        />
       </FormControl>
       <StyledFormAction>
-        <Button variant="outlined" fullWidth onClick={handleCancel}>
+        <Button variant="outlined" fullWidth type="button" onClick={handleCancel}>
           Cancel
         </Button>
-        <Button variant="contained" fullWidth>
+        <Button variant="contained" fullWidth type="submit">
           Sign In
         </Button>
       </StyledFormAction>

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IShedule, ISheduleInitialValues } from '../types/data';
-import { data } from '../utils/constants/data';
+import { IShedule, ISheduleInitialValues } from '../../types/data';
+import { data } from '../../utils/constants/data';
 
 interface InitialState {
   data: IShedule[];

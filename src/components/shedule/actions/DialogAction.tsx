@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import ContentFields from './ContentFields';
 import { ISheduleDates, ISheduleInitialValues } from '../../../types/data';
 import { useDispatch } from 'react-redux';
-import { actionSheduleSlice } from '../../../store/shedule';
+import { actionSheduleSlice } from 'store/slice/shedule';
 
 interface IDialogActionProps {
   [key: string]: unknown;
