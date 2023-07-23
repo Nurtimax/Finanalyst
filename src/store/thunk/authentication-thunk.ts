@@ -1,5 +1,5 @@
 import { createAsyncThunk, SerializedError } from '@reduxjs/toolkit';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config';
 import { ISignUpThunkProps } from 'types/thunk/sign-up';
 import { IAuthentication } from 'types/thunk/auth';
@@ -23,11 +23,13 @@ export const SignUpThunk = createAsyncThunk<IAuthentication, ISignUpThunkProps>(
   }
 );
 
-export const SignInThunk = createAsyncThunk<void, ISignUpThunkProps>(
+export const SignInThunk = createAsyncThunk<IAuthentication, ISignUpThunkProps>(
   'SignInThunk/authenticationSlice',
   async ({ email, password }: ISignUpThunkProps, { rejectWithValue }) => {
     try {
-      //   const {} = {};
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
+
+      return userDataVoid(user);
     } catch (error) {
       return rejectWithValue(error);
     }

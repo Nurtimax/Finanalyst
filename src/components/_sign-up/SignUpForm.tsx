@@ -27,6 +27,7 @@ const StyledFormAction = styled(Box)(() => ({
 
 const SignUpForm: FC<ISignUpFormProps> = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -34,10 +35,17 @@ const SignUpForm: FC<ISignUpFormProps> = () => {
       password: '',
     },
     onSubmit: (values, formikHelpers) => {
-      dispatch(SignUpThunk(values));
+      dispatch(SignUpThunk(values))
+        .unwrap()
+        .then((res) => {
+          navigate('/');
+          formikHelpers.resetForm();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   });
-  const navigate = useNavigate();
 
   const handleCancel = () => {
     navigate(-1);

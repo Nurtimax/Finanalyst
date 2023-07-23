@@ -21,3 +21,14 @@ export type SignUpThunkProps = PayloadAction<
   },
   never
 >;
+
+export type SignInThunkProps = PayloadAction<
+  IAuthentication,
+  string,
+  {
+    arg: ISignUpThunkProps;
+    requestId: string;
+    requestStatus: 'fulfilled';
+  },
+  never
+>;

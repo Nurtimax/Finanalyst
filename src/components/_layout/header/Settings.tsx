@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Avatar, Box, IconButton, Menu, MenuItem, styled, Tooltip, Typography } from '@mui/material';
 import { SETTINGS } from '../../../utils/constants/authentication';
+import { useAppSelector } from 'hooks/dispatch';
 
 interface ISettingsProps {
   [key: string]: unknown;
@@ -20,6 +21,15 @@ const Settings: FC<ISettingsProps> = ({
   handleOpenUserMenu,
   handleNavigateUserMenu,
 }) => {
+  const { userData } = useAppSelector((state) => state.auth);
+
+  const settingsOptions = useMemo(() => {
+    if (userData.email) {
+      return SETTINGS.logined;
+    }
+    return SETTINGS.login;
+  }, [userData.email]);
+
   return (
     <StyledSettings>
       <Tooltip title="Open settings">
@@ -43,7 +53,7 @@ const Settings: FC<ISettingsProps> = ({
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {SETTINGS.login.map((setting) => (
+        {settingsOptions.map((setting) => (
           <MenuItem key={setting.id} onClick={() => handleNavigateUserMenu(setting.path)}>
             <Typography textAlign="center">{setting.name}</Typography>
           </MenuItem>

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SignUpThunk } from 'store/thunk/authentication-thunk';
-import { IAuthentication, SignUpThunkProps } from 'types/thunk/auth';
+import { SignInThunk, SignUpThunk } from 'store/thunk/authentication-thunk';
+import { IAuthentication, SignInThunkProps, SignUpThunkProps } from 'types/thunk/auth';
 
 interface InitialState {
   settings: {};
@@ -34,7 +34,12 @@ const authenticationSlice = createSlice({
         state.userData = actions.payload;
       })
       .addCase(SignUpThunk.rejected, () => {})
-      .addCase(SignUpThunk.pending, () => {});
+      .addCase(SignUpThunk.pending, () => {})
+      .addCase(SignInThunk.fulfilled, (state, action: SignInThunkProps) => {
+        state.userData = action.payload;
+      })
+      .addCase(SignInThunk.rejected, () => {})
+      .addCase(SignInThunk.pending, () => {});
   },
 });
 

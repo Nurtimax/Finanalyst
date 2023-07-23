@@ -3,6 +3,8 @@ import { Box, Button, FormControl, FormLabel, styled, TextField } from '@mui/mat
 import FormHeadlines from './FormHeadlines';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useAppDispatch } from 'hooks/dispatch';
+import { SignInThunk } from 'store/thunk/authentication-thunk';
 
 interface ISignInFormProps {
   [key: string]: unknown;
@@ -24,13 +26,23 @@ const StyledFormAction = styled(Box)(() => ({
 }));
 
 const SignInForm: FC<ISignInFormProps> = () => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: { email: '', password: '' },
     onSubmit: (values, formikHelpers) => {
-      console.log('submit', values);
+      dispatch(SignInThunk(values))
+        .unwrap()
+        .then(() => {
+          navigate('/');
+          formikHelpers.resetForm();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   });
-  const navigate = useNavigate();
 
   const handleCancel = () => {
     navigate(-1);
