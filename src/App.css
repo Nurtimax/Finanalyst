@@ -9,3 +9,23 @@
     background-position: 0% 50%;
   }
 }
+
+@-webkit-keyframes bird6 {
+  0%,
+  100% {
+    transform: translate3d(-100vw, 20vh, -500px) rotate(15deg) rotate(10deg);
+  }
+  100% {
+    transform: translate3d(100vw, 40vh, -800px) rotate(5deg) rotate(10deg);
+  }
+}
+
+@keyframes bird6 {
+  0%,
+  100% {
+    transform: translate3d(-100vw, 20vh, -500px) rotate(15deg) rotate(10deg);
+  }
+  100% {
+    transform: translate3d(100vw, 40vh, -800px) rotate(5deg) rotate(10deg);
+  }
+}

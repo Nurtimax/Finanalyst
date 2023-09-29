@@ -10,6 +10,7 @@ import SignIn from '../containers/SignIn';
 import SignOut from '../containers/SignUp';
 import { Layout } from '../layout';
 import { ROUTES } from './paths';
+import Page404 from 'containers/Page404';
 
 interface IRoutesProps {
   [key: string]: unknown;
@@ -18,7 +19,7 @@ interface IRoutesProps {
 const Routes: FC<IRoutesProps> = () => {
   const router = createBrowserRouter([
     {
-      path: '/*',
+      path: '/',
       element: <Layout />,
       children: [
         { index: true, element: <Navigate to={ROUTES.financialPlanner} /> },
@@ -26,13 +27,14 @@ const Routes: FC<IRoutesProps> = () => {
         { path: ROUTES.newTable, element: <NewTable /> },
         { path: ROUTES.shedule, element: <Shedule /> },
         { path: ROUTES.profile, element: <Profile /> },
-        { path: ROUTES.account, element: <Account /> },
-      ],
+        { path: ROUTES.account, element: <Account /> }
+      ]
     },
     { path: ROUTES.logout, element: <LogOut /> },
     { path: ROUTES.logIn, element: <SignIn /> },
     { path: ROUTES.register, element: <SignOut /> },
-    { path: '*', element: 'Not Found Page' },
+    { path: '*', element: <Navigate to="/404" /> },
+    { path: '404', element: <Page404 /> }
   ]);
 
   return <RouterProvider router={router} />;

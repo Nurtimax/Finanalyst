@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
 import { fInputPriceMask } from '../../utils/helpers/priceMask';
 
@@ -8,7 +8,7 @@ interface FooterPriceProps {
   index: number;
 }
 
-const FooterPrice: FC<FooterPriceProps> = ({ header, keys, index }) => {
+const FooterPrice: FC<FooterPriceProps> = ({ keys, index }) => {
   const { data } = useAppSelector((state) => state.price);
 
   const choosedKey = keys.map((item) => item[index]);

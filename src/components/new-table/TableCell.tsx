@@ -1,5 +1,5 @@
 import { FormControl, FormLabel, styled, TextField, Typography } from '@mui/material';
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { actionFinancialPlanner } from 'store/slice/financial-planner';
 import { useAppDispatch } from '../../hooks/dispatch';
 
@@ -14,16 +14,16 @@ const StyledFormLabel = styled(FormLabel)(() => ({
   display: 'flex',
   justifyContent: 'space-between',
   '& .text': {
-    fontSize: '8px',
-  },
+    fontSize: '8px'
+  }
 }));
 
 const StyledFormControl = styled(FormControl)(() => ({
-  padding: '3px',
+  padding: '3px'
 }));
 
 const StyledTextField = styled(TextField)(() => ({
-  padding: '3px 0',
+  padding: '3px 0'
 }));
 
 const TableCell: FC<TableCellProps> = ({ month, name, storeId, monthId }) => {
@@ -37,7 +37,6 @@ const TableCell: FC<TableCellProps> = ({ month, name, storeId, monthId }) => {
 
   useEffect(() => {
     dispatch(actionFinancialPlanner.changeStoreValues({ value, monthId, storeId }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (
