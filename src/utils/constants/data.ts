@@ -28,9 +28,9 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
   const dateDays = [];
 
   for (let i = 1; i <= daysInMonth; i++) {
-    const formattedDate = `${('0' + (currentMonth + 1)).slice(-2)}-${('0' + i).slice(-2)}-${currentYear
-      .toString()
-      .slice(-2)}`;
+    const formattedDate = `${('0' + (currentMonth + 1)).slice(-2)}-${('0' + i).slice(
+      -2
+    )}-${currentYear.toString().slice(-2)}`;
     dateDays.push(formattedDate);
   }
 
@@ -41,12 +41,11 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
 
   const initialValue: ISheduleReducer[] = [];
 
-  const result = dateDays.reduce((previousValue: ISheduleReducer[], obj: string, i) => {
+  const result = dateDays.reduce((previousValue: ISheduleReducer[], obj: string) => {
     const dateTime = new Date(
-      `${String(new Date(obj).getMonth() + 1).padStart(2, '0')}-${String(new Date(obj).getDate()).padStart(
-        2,
-        '0'
-      )}-${new Date(obj).getFullYear()}`
+      `${String(new Date(obj).getMonth() + 1).padStart(2, '0')}-${String(
+        new Date(obj).getDate()
+      ).padStart(2, '0')}-${new Date(obj).getFullYear()}`
     );
 
     const matchingDates = dates.find((date) => date.date.getDate() === dateTime.getDate());
@@ -55,7 +54,7 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
       const newSheduleReducer: ISheduleReducer = {
         date: parseStringFormat(dayjs(obj).toDate()),
         dates: matchingDates.dates,
-        id: matchingDates.id,
+        id: matchingDates.id
       };
       previousValue.push(newSheduleReducer);
       return previousValue;
@@ -64,7 +63,7 @@ export const createTableData = (data: IShedule[]): ISheduleReducer[] => {
     const newSheduleReducer: ISheduleReducer = {
       date: parseStringFormat(dayjs(obj).toDate()),
       dates: [],
-      id: Math.round(Math.random() * 1000),
+      id: Math.round(Math.random() * 1000)
     };
 
     previousValue.push(newSheduleReducer);
@@ -86,8 +85,8 @@ export const data = [
       name: 'Nurtilek',
       lastName: '',
       email: '',
-      jobType: '',
-    },
+      jobType: ''
+    }
   },
   {
     id: 2,
@@ -99,8 +98,8 @@ export const data = [
       name: 'Samat',
       lastName: '',
       email: '',
-      jobType: '',
-    },
+      jobType: ''
+    }
   },
   {
     id: 3,
@@ -112,8 +111,8 @@ export const data = [
       name: 'Adilet',
       lastName: '',
       email: '',
-      jobType: '',
-    },
+      jobType: ''
+    }
   },
   {
     id: 4,
@@ -125,7 +124,7 @@ export const data = [
       name: 'Dastan',
       lastName: '',
       email: '',
-      jobType: '',
-    },
-  },
+      jobType: ''
+    }
+  }
 ];

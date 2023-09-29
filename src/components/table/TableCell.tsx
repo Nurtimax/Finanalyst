@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { actionPriceSlice } from 'store/slice/price';
 import { useAppDispatch, useAppSelector } from '../../hooks/dispatch';
 
@@ -31,7 +31,7 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
         const newSubValues: subNewStoreValues = {
           ...subAcc,
           id: item.store.name,
-          value: subItem.value,
+          value: subItem.value
         };
         return newSubValues;
       }
@@ -51,12 +51,11 @@ const TableCell: FC<TableCellProps> = ({ id }) => {
           actionPriceSlice.changeValue({
             id,
             storeId: newStoreId?.id,
-            value,
+            value
           })
         );
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (

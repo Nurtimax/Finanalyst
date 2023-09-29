@@ -14,7 +14,7 @@ const StyledSignUpForm = styled('form')(() => ({
   width: '30vw',
   background: '#fff',
   padding: '0.5rem',
-  borderRadius: '5px',
+  borderRadius: '5px'
 }));
 
 const StyledFormAction = styled(Box)(() => ({
@@ -22,7 +22,7 @@ const StyledFormAction = styled(Box)(() => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: '1.5rem',
-  padding: '1rem 0rem',
+  padding: '1rem 0rem'
 }));
 
 const SignUpForm: FC<ISignUpFormProps> = () => {
@@ -32,19 +32,19 @@ const SignUpForm: FC<ISignUpFormProps> = () => {
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      password: ''
     },
     onSubmit: (values, formikHelpers) => {
       dispatch(SignUpThunk(values))
         .unwrap()
-        .then((res) => {
+        .then(() => {
           navigate('/');
           formikHelpers.resetForm();
         })
         .catch((e) => {
           console.log(e);
         });
-    },
+    }
   });
 
   const handleCancel = () => {

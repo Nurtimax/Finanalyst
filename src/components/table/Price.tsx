@@ -1,10 +1,8 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
 import { fInputPriceMask } from '../../utils/helpers/priceMask';
 
-interface PriceProps {}
-
-const Price: FC<PriceProps> = () => {
+const Price: FC = () => {
   const { data } = useAppSelector((state) => state.price);
 
   const totalOfTotalMonths = data.map((item) =>

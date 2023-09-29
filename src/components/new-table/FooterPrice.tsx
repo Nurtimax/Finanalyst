@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
 import { fInputPriceMask } from '../../utils/helpers/priceMask';
 

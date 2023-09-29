@@ -6,7 +6,7 @@ import {
   TableCell as MuiTableCell,
   TableBody,
   Paper,
-  styled,
+  styled
 } from '@mui/material';
 import dayjs from 'dayjs';
 import React, { CSSProperties, useMemo } from 'react';
@@ -20,22 +20,16 @@ import { parseFormatDate } from '../../utils/helpers/formatDate';
 import { stickyStyleWithBorder } from '../../utils/helpers/shedule-table';
 import SheduleTableCell from './SheduleTableCell';
 
-interface Props {}
-
-interface MyCellProps extends CellProps<IShedule> {
-  // add any additional props you want to pass to the cell component
-}
-
 interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGroup<T> {
   style?: React.CSSProperties;
 }
 
 const StyledTableCell = styled(MuiTableCell)(() => ({
   minWidth: '9.5vw',
-  borderRight: '1px solid #F1F3F5',
+  borderRight: '1px solid #F1F3F5'
 }));
 
-const SheduleTable: React.FC<Props> = () => {
+const SheduleTable: React.FC = () => {
   const { data } = useAppSelector((state) => state.shedule);
 
   const dispatch = useDispatch();
@@ -48,30 +42,29 @@ const SheduleTable: React.FC<Props> = () => {
     const tableColumn = [
       {
         Header: 'Doctor',
-        accessor: 'userData.name',
+        accessor: 'userData.name'
       },
       ...tableColumns.map((item, index) => {
         const uniqueKey = `cell-${item.date}-${index}`;
         return {
           Header: parseFormatDate(dayjs(item.date)),
           accessor: String(item.date),
-          Cell: ({ cell }: MyCellProps) => {
+          Cell: ({ cell }: CellProps<IShedule>) => {
             const id = cell.row.original.id;
 
             return <SheduleTableCell key={uniqueKey} id={id} date={item.date} />;
-          },
+          }
         };
-      }),
+      })
     ];
 
     dispatch(actionColumns.monthColumnsEffect(tableColumns));
     return tableColumn;
-    //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable<IShedule>({
     columns,
-    data: tableData,
+    data: tableData
   });
 
   return (
@@ -81,7 +74,10 @@ const SheduleTable: React.FC<Props> = () => {
           <TableHead>
             {headerGroups.map((headerGroup, index) => {
               return (
-                <TableRow {...headerGroup.getHeaderGroupProps()} key={headerGroup.headers[index].id}>
+                <TableRow
+                  {...headerGroup.getHeaderGroupProps()}
+                  key={headerGroup.headers[index].id}
+                >
                   {headerGroup.headers.map((column: CustomHeaderGroup<IShedule>, index) => {
                     const style: CSSProperties = stickyStyleWithBorder(index);
                     return (

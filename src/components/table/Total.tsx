@@ -1,5 +1,5 @@
 import { Box, styled, Typography } from '@mui/material';
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useAppSelector } from '../../hooks/dispatch';
 import { StoreMonthData } from '../../types/data';
 import { fInputPriceMask } from '../../utils/helpers/priceMask';
@@ -17,8 +17,8 @@ const StyledTotal = styled(Box)(() => ({
 
   '& .total__price': {
     overflow: 'auto',
-    maxWidth: '80px',
-  },
+    maxWidth: '80px'
+  }
 }));
 
 const Total: FC<TotalProps> = ({ original }) => {

@@ -9,7 +9,7 @@ import {
   DialogTitle,
   Paper,
   PaperProps,
-  styled,
+  styled
 } from '@mui/material';
 import { ISheduleDates } from '../../types/data';
 import { useAppDispatch, useAppSelector } from '../../hooks/dispatch';
@@ -34,7 +34,7 @@ const StyledCellDateDialog = styled(Box)(() => ({}));
 const StyledDialogActionForm = styled('form')(() => ({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.5rem',
+  gap: '0.5rem'
 }));
 
 function PaperComponent(props: PaperProps) {
@@ -45,7 +45,14 @@ function PaperComponent(props: PaperProps) {
   );
 }
 
-const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, userId, startDate, endDate, id }) => {
+const CellDateDialog: FC<ICellDateDialogProps> = ({
+  open,
+  handleDialogToggle,
+  userId,
+  startDate,
+  endDate,
+  id
+}) => {
   const dispatch = useAppDispatch();
 
   const { data } = useAppSelector((state) => state.shedule);
@@ -53,15 +60,14 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, us
   const { values, setValues, handleSubmit } = useFormik<EditCellDateDialog>({
     initialValues: {
       startDate: startDate,
-      endDate: endDate,
+      endDate: endDate
     },
     onSubmit: (values) => {
       dispatch(actionSheduleSlice.editSheduleDates({ id, userId, values }));
       handleDialogToggle();
-    },
+    }
   });
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const findUserData = useMemo(() => data.find((el) => el.id === userId), [userId]);
 
   return (
@@ -72,7 +78,8 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, us
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates occasionally.
+            To subscribe to this website, please enter your email address here. We will send updates
+            occasionally.
           </DialogContentText>
           <DemoContainer components={['MultiInputTimeRangeField', 'SingleInputTimeRangeField']}>
             <MultiInputTimeRangeField
@@ -85,8 +92,8 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({ open, handleDialogToggle, us
               }}
               slotProps={{
                 textField: ({ position }) => ({
-                  label: position === 'start' ? 'From' : 'To',
-                }),
+                  label: position === 'start' ? 'From' : 'To'
+                })
               }}
             />
           </DemoContainer>

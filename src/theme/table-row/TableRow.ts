@@ -10,12 +10,12 @@ const MuiTableRow: TMuiTableRow = {
   variants: [
     {
       props: { id: 'table-head-sticky-footer' },
-      style: ({ theme }) => ({
+      style: () => ({
         position: 'sticky',
-        bottom: 0,
-      }),
-    },
-  ],
+        bottom: 0
+      })
+    }
+  ]
 };
 
 export default MuiTableRow;

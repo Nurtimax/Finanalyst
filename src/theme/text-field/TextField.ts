@@ -8,26 +8,26 @@ type TMuiTextField = {
 
 const MuiTextField: TMuiTextField = {
   styleOverrides: {
-    root: {},
+    root: {}
   },
   variants: [
     {
       props: { variant: 'outlined', id: 'disabledPadding' },
-      style: ({ theme }) => ({
+      style: () => ({
         '& input': {
-          padding: '4px 0 5px 5px',
-        },
-      }),
+          padding: '4px 0 5px 5px'
+        }
+      })
     },
     {
       props: { className: 'form-field' },
-      style: ({ theme }) => ({
+      style: () => ({
         '& input': {
-          padding: '8px',
-        },
-      }),
-    },
-  ],
+          padding: '8px'
+        }
+      })
+    }
+  ]
 };
 
 export default MuiTextField;
