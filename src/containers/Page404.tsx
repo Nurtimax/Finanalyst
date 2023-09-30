@@ -95,34 +95,61 @@ const StyledPage404 = styled(Box)`
       -webkit-animation: wingLeftTop 1.3s cubic-bezier(0.45, 0, 0.5, 0.95) infinite;
       animation: wingLeftTop 1.3s cubic-bezier(0.45, 0, 0.5, 0.95) infinite;
     }
+  }
 
-    & .bird {
-      height: 100vh;
-      width: 100%;
+  & .bird-amin {
+    &:first-of-type(1) {
+      -webkit-animation: bird1 30s linear infinite forwards;
+      animation: bird1 30s linear infinite forwards;
     }
+    &:first-of-type(2) {
+      -webkit-animation: bird2 30s linear infinite forwards;
+      animation: bird2 30s linear infinite forwards;
+      -webkit-animation-delay: 3s;
+      animation-delay: 3s;
+    }
+    &:first-of-type(3) {
+      -webkit-animation: bird3 30s linear infinite forwards;
+      animation: bird2 30s linear infinite forwards;
+      -webkit-animation-delay: 5s;
+      animation-delay: 5s;
+    }
+    &:first-of-type(2) {
+      -webkit-animation: bird6 30s linear infinite forwards;
+      animation: bird2 30s linear infinite forwards;
+      -webkit-animation-delay: 7s;
+      animation-delay: 7s;
+    }
+  }
+
+  & .bird {
+    height: 100vh;
+    width: 100%;
+    position: relative;
 
     & .bird-amin {
-      &:first-of-type(1) {
-        -webkit-animation: bird1 30s linear infinite forwards;
-        animation: bird1 30s linear infinite forwards;
+      position: absolute;
+      animation-duration: 10s; /* Adjust the duration as needed */
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    /* Define the bird flying animation */
+    @keyframes birdFly {
+      0% {
+        transform: translateX(-10%) translateY(20vh) rotate(0deg);
       }
-      &:first-of-type(2) {
-        -webkit-animation: bird2 30s linear infinite forwards;
-        animation: bird2 30s linear infinite forwards;
-        -webkit-animation-delay: 3s;
-        animation-delay: 3s;
+      25% {
+        transform: translateX(25%) translateY(-10vh) rotate(-10deg);
       }
-      &:first-of-type(3) {
-        -webkit-animation: bird3 30s linear infinite forwards;
-        animation: bird2 30s linear infinite forwards;
-        -webkit-animation-delay: 5s;
-        animation-delay: 5s;
+      50% {
+        transform: translateX(60%) translateY(0) rotate(0deg);
       }
-      &:first-of-type(2) {
-        -webkit-animation: bird6 30s linear infinite forwards;
-        animation: bird2 30s linear infinite forwards;
-        -webkit-animation-delay: 7s;
-        animation-delay: 7s;
+      75% {
+        transform: translateX(85%) translateY(10vh) rotate(10deg);
+      }
+      100% {
+        transform: translateX(110%) translateY(20vh) rotate(0deg);
       }
     }
   }
