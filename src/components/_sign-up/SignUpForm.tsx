@@ -3,8 +3,8 @@ import { Box, Button, FormControl, FormLabel, styled, TextField } from '@mui/mat
 import FormHeadLines from './FormHeadLines';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { SignUpThunk } from 'store/thunk/authentication-thunk';
-import { useAppDispatch } from 'hooks/dispatch';
+import { useAppDispatch } from '../../hooks/dispatch';
+import { SignUpThunk } from '../../store/thunk/authentication-thunk';
 
 interface ISignUpFormProps {
   [key: string]: unknown;

@@ -8,12 +8,12 @@ import {
   DialogContentText,
   DialogTitle,
   styled,
-  TextField,
+  TextField
 } from '@mui/material';
 import { useFormik } from 'formik';
 import { useAppDispatch, useAppSelector } from '../../../hooks/dispatch';
 import { generateNewStoreId } from '../../../utils/helpers/generate-new-store';
-import { actionFinancialPlanner } from 'store/slice/financial-planner';
+import { actionFinancialPlanner } from '../../../store/slice/financial-planner';
 
 interface IAddStoreDialogProps {
   [key: string]: unknown;
@@ -26,7 +26,7 @@ const StyledAddStoreDialog = styled(Box)(() => ({}));
 const StyledDialogActionForm = styled('form')(() => ({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.5rem',
+  gap: '0.5rem'
 }));
 
 const AddStoreDialog: FC<IAddStoreDialogProps> = ({ open, handleToggle }) => {
@@ -36,7 +36,7 @@ const AddStoreDialog: FC<IAddStoreDialogProps> = ({ open, handleToggle }) => {
 
   const { values, handleChange, handleSubmit } = useFormik({
     initialValues: {
-      name: '',
+      name: ''
     },
     onSubmit: (values, formikHelpers) => {
       const generateId = data.length ? data[data.length - 1]?.store.id + 1 : 1;
@@ -46,7 +46,7 @@ const AddStoreDialog: FC<IAddStoreDialogProps> = ({ open, handleToggle }) => {
       dispatch(actionFinancialPlanner.addStore(storeValue));
       formikHelpers.resetForm();
       handleToggle();
-    },
+    }
   });
 
   return (
@@ -54,7 +54,9 @@ const AddStoreDialog: FC<IAddStoreDialogProps> = ({ open, handleToggle }) => {
       <Dialog open={open} onClose={handleToggle}>
         <DialogTitle>New budget name</DialogTitle>
         <DialogContent>
-          <DialogContentText>To add a name to this table, please enter your name here.</DialogContentText>
+          <DialogContentText>
+            To add a name to this table, please enter your name here.
+          </DialogContentText>
           <TextField
             value={values.name}
             onChange={handleChange}

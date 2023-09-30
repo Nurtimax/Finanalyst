@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
-import { actionPriceSlice } from 'store/slice/price';
 import { useAppDispatch, useAppSelector } from '../../hooks/dispatch';
+import { actionPriceSlice } from '../../store/slice/price';
 
 export interface TableCellProps {
   value: number;

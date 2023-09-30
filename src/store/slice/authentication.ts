@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SignInThunk, SignUpThunk } from 'store/thunk/authentication-thunk';
-import { IAuthentication, SignInThunkProps, SignUpThunkProps } from 'types/thunk/auth';
+import { SignInThunk, SignUpThunk } from '../thunk/authentication-thunk';
+import { IAuthentication, SignInThunkProps, SignUpThunkProps } from '../../types/thunk/auth';
 
 interface InitialState {
   userData: IAuthentication;

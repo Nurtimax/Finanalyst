@@ -1,10 +1,18 @@
 import React, { FC } from 'react';
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, styled } from '@mui/material';
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  styled
+} from '@mui/material';
 import { useFormik } from 'formik';
 import ContentFields from './ContentFields';
 import { ISheduleDates, ISheduleInitialValues } from '../../../types/data';
 import { useDispatch } from 'react-redux';
-import { actionSheduleSlice } from 'store/slice/shedule';
+import { actionSheduleSlice } from '../../../store/slice/shedule';
 
 interface IDialogActionProps {
   [key: string]: unknown;
@@ -16,7 +24,7 @@ const StyledDialogAction = styled(Box)(() => ({}));
 const StyledDialogActionForm = styled('form')(() => ({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.5rem',
+  gap: '0.5rem'
 }));
 
 const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
@@ -28,7 +36,7 @@ const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
 
       formikHelpers.resetForm();
       handleToggle();
-    },
+    }
   });
 
   const handleChange = (values: Omit<ISheduleInitialValues, 'date' | 'dates' | 'id'>) => {
@@ -43,14 +51,17 @@ const DialogAction: FC<IDialogActionProps> = ({ handleToggle, open }) => {
           return { ...date, ...values };
         }
         return date;
-      }),
+      })
     }));
   };
 
   const handleAddDates = () => {
     setValues((prev) => ({
       ...prev,
-      dates: [...prev.dates, { id: prev.dates.length + 1, startDate: null, endDate: null, date: null }],
+      dates: [
+        ...prev.dates,
+        { id: prev.dates.length + 1, startDate: null, endDate: null, date: null }
+      ]
     }));
   };
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, styled } from '@mui/material';
-import { MainSignIn } from 'components/_sign-in';
+import { MainSignIn } from '../components/_sign-in';
 
 interface ISignInProps {
   [key: string]: unknown;

@@ -1,14 +1,9 @@
 import { createAsyncThunk, SerializedError } from '@reduxjs/toolkit';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase/config';
-import { ISignUpThunkProps } from 'types/thunk/sign-up';
-import { IAuthentication } from 'types/thunk/auth';
-import { userDataVoid } from 'utils/helpers/auth';
-// import { User, UserCredential } from '@firebase/auth';
-
-// interface SignInThunkVoid extends User {
-//   accessToken: string;
-// }
+import { IAuthentication } from '../../types/thunk/auth';
+import { ISignUpThunkProps } from '../../types/thunk/sign-up';
+import { userDataVoid } from '../../utils/helpers/auth';
 
 export const SignUpThunk = createAsyncThunk<IAuthentication, ISignUpThunkProps>(
   'SignUpThunk/authenticationSlice',

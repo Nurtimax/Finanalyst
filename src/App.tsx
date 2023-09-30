@@ -3,9 +3,9 @@ import { auth } from './firebase/config';
 import React from 'react';
 import './App.css';
 import Routes from './routes';
-import { useAppDispatch } from 'hooks/dispatch';
-import { actionAuthentication } from 'store/slice/authentication';
-import { userDataVoid } from 'utils/helpers/auth';
+import { useAppDispatch } from './hooks/dispatch';
+import { userDataVoid } from './utils/helpers/auth';
+import { actionAuthentication } from './store/slice/authentication';
 
 function App() {
   const dispatch = useAppDispatch();

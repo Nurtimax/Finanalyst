@@ -10,7 +10,7 @@ import SignIn from '../containers/SignIn';
 import SignOut from '../containers/SignUp';
 import { Layout } from '../layout';
 import { ROUTES } from './paths';
-import Page404 from 'containers/Page404';
+import Page404 from '../containers/Page404';
 
 interface IRoutesProps {
   [key: string]: unknown;

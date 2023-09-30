@@ -7,7 +7,7 @@ import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import { ISheduleDates } from '../../types/data';
 import { useDispatch } from 'react-redux';
 import CellDateDialog from './CellDateDialog';
-import { actionSheduleSlice } from 'store/slice/shedule';
+import { actionSheduleSlice } from '../../store/slice/shedule';
 
 interface ICellDateProps extends ISheduleDates {
   [key: string]: unknown;
@@ -16,7 +16,7 @@ interface ICellDateProps extends ISheduleDates {
 
 const StyledCellDate = styled(Box)(() => ({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'center'
 }));
 
 const CellDate: FC<ICellDateProps> = ({ startDate, endDate, id, userId }) => {

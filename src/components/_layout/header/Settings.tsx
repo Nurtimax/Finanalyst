@@ -1,7 +1,16 @@
 import React, { FC, useMemo } from 'react';
-import { Avatar, Box, IconButton, Menu, MenuItem, styled, Tooltip, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  styled,
+  Tooltip,
+  Typography
+} from '@mui/material';
 import { SETTINGS } from '../../../utils/constants/authentication';
-import { useAppSelector } from 'hooks/dispatch';
+import { useAppSelector } from '../../../hooks/dispatch';
 
 interface ISettingsProps {
   [key: string]: unknown;
@@ -12,14 +21,14 @@ interface ISettingsProps {
 }
 
 const StyledSettings = styled(Box)(() => ({
-  flexGrow: 0,
+  flexGrow: 0
 }));
 
 const Settings: FC<ISettingsProps> = ({
   handleCloseUserMenu,
   anchorElUser,
   handleOpenUserMenu,
-  handleNavigateUserMenu,
+  handleNavigateUserMenu
 }) => {
   const { userData } = useAppSelector((state) => state.auth);
 
@@ -43,12 +52,12 @@ const Settings: FC<ISettingsProps> = ({
         anchorEl={anchorElUser}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
