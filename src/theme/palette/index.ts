@@ -5,17 +5,9 @@ interface IPalette {
   dark: PaletteOptions;
 }
 
-export const paletteModeText = {
-  primary: 'var(--tg-theme-text-color)',
-  secondary: 'var(--tg-theme-text-color)',
-  disabled: 'var(--tg-theme-text-color)'
-};
+export const paletteModeText = {};
 
-export const paletteModeBackground = {
-  paper: 'var(--tg-theme-bg-color)',
-  default: 'var(--tg-theme-bg-color)',
-  neutral: 'var(--tg-theme-bg-color)'
-};
+export const paletteModeBackground = {};
 
 const palette: IPalette = {
   light: {

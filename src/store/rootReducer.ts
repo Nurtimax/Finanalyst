@@ -7,7 +7,7 @@ import financial from './slice/financial-planner';
 import auth from './slice/authentication';
 import user from './slice/user';
 
-export const rootReducer: Reducer = combineReducers({
+const reducers = combineReducers({
   price,
   shedule,
   columns,
@@ -16,4 +16,6 @@ export const rootReducer: Reducer = combineReducers({
   user
 });
 
-export type TRootReducer = typeof rootReducer;
+export type TRootReducer = ReturnType<typeof reducers>;
+
+export const rootReducer = reducers;
