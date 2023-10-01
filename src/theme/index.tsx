@@ -5,6 +5,7 @@ import { MuiTableRow } from './table-row';
 import { MuiTextField } from './text-field';
 import { MuiTypography } from './typography';
 import palette from './palette';
+import GlobalStyle from './global-style';
 
 interface IThemeProps {
   children: ReactNode;
@@ -24,6 +25,7 @@ const Theme: FC<IThemeProps> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <GlobalStyle />
       {children}
     </ThemeProvider>
   );
