@@ -9,7 +9,8 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     // eslint-disable-next-line no-undef
-    path: path.resolve(__dirname, 'dist') // Output directory
+    path: path.resolve(__dirname, 'dist'), // Output directory
+    clean: true
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'] // File extensions to resolve

@@ -1,5 +1,5 @@
 import { User } from 'firebase/auth';
-import { IAuthentication } from 'types/thunk/auth';
+import { IAuthentication } from '../../types/thunk/auth';
 
 export const userDataVoid = (obj: User): IAuthentication => {
   const userData: IAuthentication = {
@@ -9,7 +9,7 @@ export const userDataVoid = (obj: User): IAuthentication => {
     isAnanymous: obj.isAnonymous,
     phoneNumber: obj.phoneNumber,
     photoURL: obj.photoURL,
-    uid: obj.uid,
+    uid: obj.uid
   };
   return userData;
 };
