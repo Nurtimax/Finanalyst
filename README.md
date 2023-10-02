@@ -19,18 +19,25 @@ git clone https://github.com/Nurtimax/Financial-Planner.git
 2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies using the package manager of your choice. For example, if you are using npm, run the following command:
 
 ```bash
-npm install
+yarn install
 ```
 
 3. **Run the Program:** Once the dependencies are installed, execute the program with the following command:
 
 ```bash
-npm start
+yarn start
 ```
 
-4. **Input Data:** Follow the prompts and provide the required information, such as expenses, income, and the desired calculation period.
+4. **Running the Telegram Bot**:
 
-5. **View Results:**  After inputting the necessary data, Financial-Planner will display the calculated results, including budget summaries and financial overviews.
+After installing the necessary dependencies, you can start the program by executing the following command:
+```bash
+yarn server
+```
+
+5. **Input Data:** Follow the prompts and provide the required information, such as expenses, income, and the desired calculation period.
+
+6. **View Results:**  After inputting the necessary data, Financial-Planner will display the calculated results, including budget summaries and financial overviews.
 
 ## Usage Examples
 Here are some examples of how you can use Financial-Planner:
