@@ -1,23 +1,14 @@
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, Theme as MuiTheme, ThemeProvider } from '@mui/material';
 import React, { FC, ReactNode } from 'react';
-import { MuiContainer } from './container';
-import { MuiTableRow } from './table-row';
-import { MuiTextField } from './text-field';
-import { MuiTypography } from './typography';
+import themeComponentOverrides from './overrides';
 
 interface IThemeProps {
   children: ReactNode;
 }
 
 const Theme: FC<IThemeProps> = ({ children }) => {
-  const theme = createTheme({
-    components: {
-      MuiTextField,
-      MuiContainer,
-      MuiTableRow,
-      MuiTypography,
-    },
-  });
+  const theme: MuiTheme = createTheme({});
+  theme.components = themeComponentOverrides(theme);
 
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

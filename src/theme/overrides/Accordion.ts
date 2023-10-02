@@ -1,32 +1,7 @@
-import { ComponentsOverrides, ComponentsProps, ComponentsVariants, Theme } from '@mui/material';
+import { Components, Theme } from '@mui/material';
 import { MUI_CLASSNAME } from 'theme/constants/overrides';
 import { TYPOGRAPHY_OPTIONS } from './Typography';
-
-type TAccortion = {
-  MuiAccordion?: {
-    defaultProps?: ComponentsProps['MuiAccordion'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiAccordion'];
-    variants?: ComponentsVariants['MuiAccordion'];
-  };
-
-  MuiAccordionActions?: {
-    defaultProps?: ComponentsProps['MuiAccordionActions'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiAccordionActions'];
-    variants?: ComponentsVariants['MuiAccordionActions'];
-  };
-
-  MuiAccordionDetails?: {
-    defaultProps?: ComponentsProps['MuiAccordionDetails'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiAccordionDetails'];
-    variants?: ComponentsVariants['MuiAccordionDetails'];
-  };
-
-  MuiAccordionSummary?: {
-    defaultProps?: ComponentsProps['MuiAccordionSummary'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiAccordionSummary'];
-    variants?: ComponentsVariants['MuiAccordionSummary'];
-  };
-};
+import { BaseTheme } from '@mui/material/styles/createTheme';
 
 export const ACCORDION_OPTIONS = {
   classNames: {
@@ -37,8 +12,8 @@ export const ACCORDION_OPTIONS = {
   }
 };
 
-const Accordion = (theme: Theme): TAccortion => {
-  const accordion: TAccortion = {
+const Accordion = (theme: Theme): Components<BaseTheme> => {
+  const accordion: Components<BaseTheme> = {
     MuiAccordion: {
       styleOverrides: {
         root: {
@@ -63,10 +38,10 @@ const Accordion = (theme: Theme): TAccortion => {
             [`&${TYPOGRAPHY_OPTIONS.classNames.root}`]: {
               color: 'inherit'
             }
+          },
+          expandIconWrapper: {
+            color: 'inherit'
           }
-        },
-        expandIconWrapper: {
-          color: 'inherit'
         }
       }
     },

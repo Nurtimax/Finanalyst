@@ -1,40 +1,8 @@
-import { ComponentsOverrides, ComponentsProps, ComponentsVariants, Theme } from '@mui/material';
+import { Components, Theme } from '@mui/material';
+import { BaseTheme } from '@mui/material/styles/createTheme';
 
-type TCard = {
-  MuiCard?: {
-    defaultProps?: ComponentsProps['MuiCard'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiCard'];
-    variants?: ComponentsVariants['MuiCard'];
-  };
-  MuiCardActionArea?: {
-    defaultProps?: ComponentsProps['MuiCardActionArea'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiCardActionArea'];
-    variants?: ComponentsVariants['MuiCardActionArea'];
-  };
-  MuiCardActions?: {
-    defaultProps?: ComponentsProps['MuiCardActions'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiCardActions'];
-    variants?: ComponentsVariants['MuiCardActions'];
-  };
-  MuiCardContent?: {
-    defaultProps?: ComponentsProps['MuiCardContent'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiCardContent'];
-    variants?: ComponentsVariants['MuiCardContent'];
-  };
-  MuiCardHeader?: {
-    defaultProps?: ComponentsProps['MuiCardHeader'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiCardHeader'];
-    variants?: ComponentsVariants['MuiCardHeader'];
-  };
-  MuiCardMedia?: {
-    defaultProps?: ComponentsProps['MuiCardMedia'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiCardMedia'];
-    variants?: ComponentsVariants['MuiCardMedia'];
-  };
-};
-
-const Card = (theme: Theme): TCard => {
-  return {
+const Card = (theme: Theme): Components<BaseTheme> => {
+  const components: Components<BaseTheme> = {
     MuiCard: {
       styleOverrides: {
         root: {
@@ -70,6 +38,8 @@ const Card = (theme: Theme): TCard => {
     },
     MuiCardMedia: {}
   };
+
+  return components;
 };
 
 export default Card;

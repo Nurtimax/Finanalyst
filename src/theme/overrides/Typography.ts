@@ -1,12 +1,5 @@
-import { ComponentsOverrides, ComponentsProps, ComponentsVariants, Theme } from '@mui/material';
-
-type TypeTypography = {
-  MuiTypography?: {
-    defaultProps?: ComponentsProps['MuiTypography'];
-    styleOverrides?: ComponentsOverrides<Theme>['MuiTypography'];
-    variants?: ComponentsVariants['MuiTypography'];
-  };
-};
+import { Components, Theme } from '@mui/material';
+import { BaseTheme } from '@mui/material/styles/createTheme';
 
 export const TYPOGRAPHY_OPTIONS = {
   classNames: {
@@ -35,7 +28,7 @@ export const TYPOGRAPHY_OPTIONS = {
   }
 };
 
-const Typography = (theme: Theme): TypeTypography => {
+const Typography = (theme: Theme): Components<BaseTheme> => {
   return {
     MuiTypography: {
       styleOverrides: {
