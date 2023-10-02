@@ -15,11 +15,11 @@ if (token) {
     const text = msg.text;
 
     if (text === '/start') {
-      return await bot.sendMessage(chatId, 'Welcome my channels /end');
+      return await bot.sendMessage(chatId, 'Welcome my channels /end  /register');
     }
 
     if (text === '/end') {
-      return await bot.sendMessage(chatId, 'Goodbye my channels /start /register');
+      return await bot.sendMessage(chatId, 'Goodbye my channels /start ');
     }
 
     if (text === '/register') {
