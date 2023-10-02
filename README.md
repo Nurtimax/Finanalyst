@@ -28,9 +28,7 @@ yarn install
 yarn start
 ```
 
-4. **Running the Telegram Bot**:
-
-After installing the necessary dependencies, you can start the program by executing the following command:
+4. **Running the Telegram Bot**: After installing the necessary dependencies, you can start the program by executing the following command:
 ```bash
 yarn server
 ```
