@@ -2,6 +2,7 @@
   "name": "planner",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",
     "@emotion/react": "^11.11.1",
@@ -23,6 +24,7 @@
     "@typescript-eslint/parser": "^6.7.3",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.9",
+    "dotenv": "^16.3.1",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
@@ -31,6 +33,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "firebase": "^10.0.0",
     "formik": "^2.4.2",
+    "node-telegram-bot-api": "^0.63.0",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
     "prettier": "^3.0.3",
@@ -41,12 +44,18 @@
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
+    "redux-persist": "^6.0.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-node": "node server/index.js",
+    "server": "nodemon server/index.js",
+    "ts-server": "ts-node ./server/index.ts",
+    "ts-dev-server": "nodemon --exec ts-node ./server/index.ts",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -68,11 +77,13 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/node": "^20.4.2",
+    "@types/node-telegram-bot-api": "^0.61.8",
     "@types/numeral": "^2.0.2",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-react": "^7.33.2"
+    "eslint-plugin-react": "^7.33.2",
+    "nodemon": "^3.0.1"
   }
 }
