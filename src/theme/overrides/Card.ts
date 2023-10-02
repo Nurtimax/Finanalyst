@@ -1,5 +1,5 @@
 import { Components, Theme } from '@mui/material';
-import { BaseTheme } from '@mui/material/styles/createTheme';
+import { BaseTheme } from 'types/theme';
 
 const Card = (theme: Theme): Components<BaseTheme> => {
   const components: Components<BaseTheme> = {

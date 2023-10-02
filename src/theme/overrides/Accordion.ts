@@ -1,7 +1,7 @@
 import { Components, Theme } from '@mui/material';
 import { MUI_CLASSNAME } from 'theme/constants/overrides';
 import { TYPOGRAPHY_OPTIONS } from './Typography';
-import { BaseTheme } from '@mui/material/styles/createTheme';
+import { BaseTheme } from 'types/theme';
 
 export const ACCORDION_OPTIONS = {
   classNames: {
