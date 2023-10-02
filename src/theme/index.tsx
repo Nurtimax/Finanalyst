@@ -1,10 +1,6 @@
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { createTheme, CssBaseline, Theme as MuiTheme, ThemeProvider } from '@mui/material';
 import React, { FC, ReactNode } from 'react';
-import { MuiContainer } from './container';
-import { MuiTableRow } from './table-row';
-import { MuiTextField } from './text-field';
-import { MuiTypography } from './typography';
-import palette from './palette';
+import themeComponentOverrides from './overrides';
 import GlobalStyle from './global-style';
 
 interface IThemeProps {
@@ -12,15 +8,8 @@ interface IThemeProps {
 }
 
 const Theme: FC<IThemeProps> = ({ children }) => {
-  const theme = createTheme({
-    components: {
-      MuiTextField,
-      MuiContainer,
-      MuiTableRow,
-      MuiTypography
-    },
-    palette: palette.dark
-  });
+  const theme: MuiTheme = createTheme({});
+  theme.components = themeComponentOverrides(theme);
 
   return (
     <ThemeProvider theme={theme}>
