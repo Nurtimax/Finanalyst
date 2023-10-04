@@ -4,11 +4,6 @@ import { auth } from '../../firebase/config';
 import { ISignUpThunkProps } from 'types/thunk/sign-up';
 import { IAuthentication } from 'types/thunk/auth';
 import { userDataVoid } from 'utils/helpers/auth';
-// import { User, UserCredential } from '@firebase/auth';
-
-// interface SignInThunkVoid extends User {
-//   accessToken: string;
-// }
 
 export const SignUpThunk = createAsyncThunk<IAuthentication, ISignUpThunkProps>(
   'SignUpThunk/authenticationSlice',
