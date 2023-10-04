@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Button, FormControl, FormLabel, styled, TextField } from '@mui/material';
-import FormHeadLines from './FormHeadLines';
+import { Button, styled, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { SignUpThunk } from 'store/thunk/authentication-thunk';
@@ -11,19 +10,10 @@ interface ISignUpFormProps {
 }
 
 const StyledSignUpForm = styled('form')(() => ({
-  width: '30vw',
-  background: '#fff',
-  padding: '0.5rem',
-  borderRadius: '5px'
+  width: '100%',
+  height: '100%'
 }));
 
-const StyledFormAction = styled(Box)(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  gap: '1.5rem',
-  padding: '1rem 0rem'
-}));
 
 const SignUpForm: FC<ISignUpFormProps> = () => {
   const dispatch = useAppDispatch();
@@ -47,43 +37,38 @@ const SignUpForm: FC<ISignUpFormProps> = () => {
     }
   });
 
-  const handleCancel = () => {
-    navigate(-1);
-  };
-
   return (
     <StyledSignUpForm onSubmit={handleSubmit}>
-      <FormHeadLines />
-      <FormControl fullWidth>
-        <FormLabel htmlFor="email">Email</FormLabel>
-        <TextField
-          variant="outlined"
-          className="form-field"
-          name="email"
-          type="email"
-          value={values.email}
-          onChange={handleChange}
-        />
-      </FormControl>
-      <FormControl fullWidth>
-        <FormLabel htmlFor="password">Password</FormLabel>
-        <TextField
-          variant="outlined"
-          type="password"
-          name="password"
-          className="form-field"
-          value={values.password}
-          onChange={handleChange}
-        />
-      </FormControl>
-      <StyledFormAction>
-        <Button variant="outlined" fullWidth type="button" onClick={handleCancel}>
-          Cancel
-        </Button>
-        <Button variant="contained" fullWidth type="submit">
-          Sign Up
-        </Button>
-      </StyledFormAction>
+      <TextField
+        variant="outlined"
+        className="form-field"
+        name="email"
+        type="email"
+        placeholder="Email..."
+        id="outlined-multiline-flexible"
+        label="Please Enter you email"
+        multiline
+        maxRows={4}
+        value={values.email}
+        onChange={handleChange}
+      />
+      <TextField
+        placeholder="Password..."
+        variant="outlined"
+        type="password"
+        name="password"
+        className="form-field"
+        id="outlined-multiline-flexible"
+        label="Enter your Password"
+        multiline
+        maxRows={4}
+        value={values.password}
+        onChange={handleChange}
+      />
+
+      <Button variant="contained" fullWidth type="submit">
+        Sign Up
+      </Button>
     </StyledSignUpForm>
   );
 };
