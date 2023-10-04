@@ -7,7 +7,7 @@ interface IFormHeadLinesProps {
 
 const StyledFormHeadLines = styled(Box)(() => ({
   textAlign: 'center',
-  padding: '1rem 0',
+  padding: '2rem 0'
 }));
 
 const FormHeadLines: FC<IFormHeadLinesProps> = () => {
