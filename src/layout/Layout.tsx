@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { Box, styled, Toolbar } from '@mui/material';
+import { Box, Container, styled, Toolbar } from '@mui/material';
 import Header from './header';
 import Main from './main';
 import { Outlet } from 'react-router-dom';
+import Breadcrumbs from 'components/breadcrumbs';
 
 interface ILayoutProps {
   [key: string]: unknown;
@@ -15,6 +16,11 @@ const Layout: FC<ILayoutProps> = () => {
     <StyledLayout>
       <Header />
       <Toolbar />
+
+      <Container sx={{ pt: 2 }}>
+        <Breadcrumbs />
+      </Container>
+
       <Main>
         <Outlet />
       </Main>

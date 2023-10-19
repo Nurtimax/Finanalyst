@@ -8,6 +8,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';
 import Theme from './theme';
 import { PersistGate } from 'redux-persist/integration/react';
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -15,7 +16,9 @@ root.render(
     <PersistGate persistor={persistor}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Theme>
-          <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
         </Theme>
       </LocalizationProvider>
     </PersistGate>

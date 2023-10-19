@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 import { Box, styled } from '@mui/material';
+import Page from 'components/helmet-page';
+import { ROUTES_NAVIGATE } from 'routes/paths';
 
 interface IPage404Props {
   [key: string]: unknown;
@@ -157,43 +159,49 @@ const StyledPage404 = styled(Box)`
 
 const Page404: FC<IPage404Props> = () => {
   return (
-    <StyledPage404>
-      <div className="container container-star">
-        {stars.map((el, i) => (
-          <div className="star-1" key={i} />
-        ))}
-      </div>
-
-      <div className="bird bird-amin">
-        <div className="bird-container">
-          <div className="wing wing-left">
-            <div className="wing-left-top" />
-          </div>
-
-          <div className="wing wing-right">
-            <div className="wing-right-top" />
-          </div>
+    <Page
+      title="Page 404"
+      canoncial={ROUTES_NAVIGATE.page404}
+      description="Oops! Page not found. Explore our site or contact us for assistance. We're here to help you find what you're looking for."
+    >
+      <StyledPage404>
+        <div className="container container-star">
+          {stars.map((el, i) => (
+            <div className="star-1" key={i} />
+          ))}
         </div>
 
-        <div className="container-title">
-          <div className="title">
-            <div className="number">4</div>
-            <div className="moon">
-              <div className="face">
-                <div className="mounth" />
-                <div className="eyes">
-                  <div className="eye-left" />
-                  <div className="eye-right" />
+        <div className="bird bird-amin">
+          <div className="bird-container">
+            <div className="wing wing-left">
+              <div className="wing-left-top" />
+            </div>
+
+            <div className="wing wing-right">
+              <div className="wing-right-top" />
+            </div>
+          </div>
+
+          <div className="container-title">
+            <div className="title">
+              <div className="number">4</div>
+              <div className="moon">
+                <div className="face">
+                  <div className="mounth" />
+                  <div className="eyes">
+                    <div className="eye-left" />
+                    <div className="eye-right" />
+                  </div>
                 </div>
               </div>
+              <div className="number">4</div>
             </div>
-            <div className="number">4</div>
+            <div className="subtitle">Oops. Looks like you took a wrong turn.</div>
+            <button>Go back</button>
           </div>
-          <div className="subtitle">Oops. Looks like you took a wrong turn.</div>
-          <button>Go back</button>
         </div>
-      </div>
-    </StyledPage404>
+      </StyledPage404>
+    </Page>
   );
 };
 

@@ -33,8 +33,8 @@ const Routes: FC<IRoutesProps> = () => {
     { path: ROUTES.logout, element: <LogOut /> },
     { path: ROUTES.logIn, element: <SignIn /> },
     { path: ROUTES.register, element: <SignOut /> },
-    { path: '*', element: <Navigate to="/404" /> },
-    { path: '404', element: <Page404 /> }
+    { path: '*', element: <Navigate to={ROUTES.page404} /> },
+    { path: ROUTES.page404, element: <Page404 /> }
   ]);
 
   return <RouterProvider router={router} />;
