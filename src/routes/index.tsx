@@ -11,6 +11,7 @@ import SignOut from '../containers/SignUp';
 import { Layout } from '../layout';
 import { ROUTES } from './paths';
 import Page404 from 'containers/Page404';
+import TodoList from 'containers/TodoList';
 
 interface IRoutesProps {
   [key: string]: unknown;
@@ -27,7 +28,8 @@ const Routes: FC<IRoutesProps> = () => {
         { path: ROUTES.newTable, element: <NewTable /> },
         { path: ROUTES.shedule, element: <Shedule /> },
         { path: ROUTES.profile, element: <Profile /> },
-        { path: ROUTES.account, element: <Account /> }
+        { path: ROUTES.account, element: <Account /> },
+        { path: ROUTES.todoList, element: <TodoList /> }
       ]
     },
     { path: ROUTES.logout, element: <LogOut /> },
