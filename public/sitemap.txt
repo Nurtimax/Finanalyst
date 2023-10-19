@@ -1,0 +1,10 @@
+https://financial-planner-three.vercel.app/
+https://financial-planner-three.vercel.app/new-table
+https://financial-planner-three.vercel.app/shedule
+https://financial-planner-three.vercel.app/planner
+https://financial-planner-three.vercel.app/account
+https://financial-planner-three.vercel.app/profile
+https://financial-planner-three.vercel.app/logout
+https://financial-planner-three.vercel.app/log-in
+https://financial-planner-three.vercel.app/register
+https://financial-planner-three.vercel.app/404
