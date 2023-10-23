@@ -8,7 +8,7 @@ interface IMainFinancialPlannerProps {
 
 const StyledMainFinancialPlanner = styled(Box)(() => ({
   display: 'grid',
-  gap: '1rem',
+  gap: '1rem'
 }));
 
 const MainFinancialPlanner: FC<IMainFinancialPlannerProps> = () => {
