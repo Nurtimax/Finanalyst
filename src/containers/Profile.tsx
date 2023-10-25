@@ -7,8 +7,6 @@ interface IProfileProps {
   [key: string]: unknown;
 }
 
-const StyledProfile = styled(Box)(() => ({}));
-
 const Profile: FC<IProfileProps> = () => {
   return (
     <Page
@@ -16,7 +14,7 @@ const Profile: FC<IProfileProps> = () => {
       canoncial={ROUTES_NAVIGATE.profile}
       description="Nurtimax's profile - A brief description of Nurtimax's interests and background."
     >
-      <StyledProfile>Profile</StyledProfile>
+      <Box>Profile</Box>
     </Page>
   );
 };

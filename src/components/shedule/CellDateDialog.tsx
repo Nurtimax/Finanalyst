@@ -29,8 +29,6 @@ interface ICellDateDialogProps extends Omit<ISheduleDates, 'date'> {
 
 type EditCellDateDialog = Omit<ISheduleDates, 'id' | 'date'>;
 
-const StyledCellDateDialog = styled(Box)(() => ({}));
-
 const StyledDialogActionForm = styled('form')(() => ({
   display: 'flex',
   alignItems: 'center',
@@ -71,7 +69,7 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({
   const findUserData = useMemo(() => data.find((el) => el.id === userId), [userId]);
 
   return (
-    <StyledCellDateDialog>
+    <Box>
       <Dialog open={open} onClose={handleDialogToggle} PaperComponent={PaperComponent}>
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
           {findUserData?.userData.name} date editing
@@ -109,7 +107,7 @@ const CellDateDialog: FC<ICellDateDialogProps> = ({
           </StyledDialogActionForm>
         </DialogActions>
       </Dialog>
-    </StyledCellDateDialog>
+    </Box>
   );
 };
 

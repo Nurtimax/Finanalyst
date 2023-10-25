@@ -10,8 +10,6 @@ interface IBreadcrumbsProps {
   [key: string]: unknown;
 }
 
-const StyledBreadcrumbs = styled(MuiBreadcrumbs)(() => ({}));
-
 const Breadcrumbs: FC<IBreadcrumbsProps> = ({}) => {
   const breadcrumbs = useReactRouterBreadcrumbs(
     [
@@ -32,7 +30,7 @@ const Breadcrumbs: FC<IBreadcrumbsProps> = ({}) => {
       <Typography variant="h1" sx={{ fontSize: '2rem' }}>
         {_.last(breadcrumbs)?.breadcrumb}
       </Typography>
-      <StyledBreadcrumbs
+      <MuiBreadcrumbs
         maxItems={3}
         separator={<NavigateNextIcon fontSize="small" />}
         aria-label="breadcrumb"
@@ -42,7 +40,7 @@ const Breadcrumbs: FC<IBreadcrumbsProps> = ({}) => {
             {breadcrumb}
           </NavLink>
         ))}
-      </StyledBreadcrumbs>
+      </MuiBreadcrumbs>
     </>
   );
 };

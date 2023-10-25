@@ -8,8 +8,6 @@ interface INewTableProps {
   [key: string]: unknown;
 }
 
-const StyledNewTable = styled(Box)(() => ({}));
-
 const NewTable: FC<INewTableProps> = () => {
   return (
     <Page
@@ -17,11 +15,11 @@ const NewTable: FC<INewTableProps> = () => {
       canoncial={ROUTES_NAVIGATE.newTable}
       description="Explore financial data with our powerful table tools. Compare, analyze, and make informed decisions. Get started now."
     >
-      <StyledNewTable>
+      <Box>
         <Container>
           <MainNewTable />
         </Container>
-      </StyledNewTable>
+      </Box>
     </Page>
   );
 };

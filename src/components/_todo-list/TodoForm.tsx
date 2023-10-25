@@ -7,8 +7,6 @@ interface ITodoFormProps {
   addTodo: (newTodo: ITodoList) => void;
 }
 
-const StyledTodoForm = styled('form')(() => ({}));
-
 const TodoForm: FC<ITodoFormProps> = memo(({ addTodo }) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,10 +24,10 @@ const TodoForm: FC<ITodoFormProps> = memo(({ addTodo }) => {
   };
 
   return (
-    <StyledTodoForm onSubmit={handleSubmit} autoComplete="off">
+    <form onSubmit={handleSubmit} autoComplete="off">
       <TextField InputProps={{ name: 'todo' }} />
       <Button type="submit">Add</Button>
-    </StyledTodoForm>
+    </form>
   );
 });
 
