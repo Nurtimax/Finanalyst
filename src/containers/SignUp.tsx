@@ -8,8 +8,6 @@ interface ISignOutProps {
   [key: string]: unknown;
 }
 
-const StyledSignOut = styled(Box)(() => ({}));
-
 const SignOut: FC<ISignOutProps> = () => {
   return (
     <Page
@@ -17,9 +15,9 @@ const SignOut: FC<ISignOutProps> = () => {
       canoncial={ROUTES_NAVIGATE.register}
       description="Sign up to unlock exclusive access to our platform. Join now to enjoy our premium services, content, and community. Start your journey today!"
     >
-      <StyledSignOut>
+      <Box>
         <MainSignUp />
-      </StyledSignOut>
+      </Box>
     </Page>
   );
 };

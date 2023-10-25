@@ -8,8 +8,6 @@ interface ISheduleProps {
   [key: string]: unknown;
 }
 
-const StyledShedule = styled(Box)(() => ({}));
-
 const Shedule: FC<ISheduleProps> = () => {
   return (
     <Page
@@ -17,11 +15,11 @@ const Shedule: FC<ISheduleProps> = () => {
       canoncial={ROUTES_NAVIGATE.shedule}
       description="Your Schedule Description Goes Here"
     >
-      <StyledShedule>
+      <Box>
         <Container>
           <MainShedule />
         </Container>
-      </StyledShedule>
+      </Box>
     </Page>
   );
 };

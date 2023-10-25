@@ -9,11 +9,9 @@ interface ILayoutProps {
   [key: string]: unknown;
 }
 
-const StyledLayout = styled(Box)(() => ({}));
-
 const Layout: FC<ILayoutProps> = () => {
   return (
-    <StyledLayout>
+    <Box>
       <Header />
       <Toolbar />
 
@@ -24,7 +22,7 @@ const Layout: FC<ILayoutProps> = () => {
       <Main>
         <Outlet />
       </Main>
-    </StyledLayout>
+    </Box>
   );
 };
 

@@ -6,13 +6,11 @@ interface IHeaderProps {
   [key: string]: unknown;
 }
 
-const StyledHeader = styled(Box)(() => ({}));
-
 const Header: FC<IHeaderProps> = () => {
   return (
-    <StyledHeader>
+    <Box>
       <MainHeader />
-    </StyledHeader>
+    </Box>
   );
 };
 

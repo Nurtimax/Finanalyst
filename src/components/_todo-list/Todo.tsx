@@ -11,8 +11,6 @@ export interface ITodoList {
   id: string;
 }
 
-const StyledTodo = styled(Box)(() => ({}));
-
 const MainTodo: FC<ITodoProps> = ({}) => {
   const [todos, setTodos] = useState<ITodoList[]>([]);
 
@@ -25,10 +23,10 @@ const MainTodo: FC<ITodoProps> = ({}) => {
   };
 
   return (
-    <StyledTodo>
+    <Box>
       <TodoForm addTodo={addTodo} />
       <TodoList todos={todos} />
-    </StyledTodo>
+    </Box>
   );
 };
 

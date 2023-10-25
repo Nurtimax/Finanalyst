@@ -8,8 +8,6 @@ interface IFinancialPlannerProps {
   [key: string]: unknown;
 }
 
-const StyledFinancialPlanner = styled(Box)(() => ({}));
-
 const FinancialPlanner: FC<IFinancialPlannerProps> = () => {
   return (
     <Page
@@ -17,11 +15,11 @@ const FinancialPlanner: FC<IFinancialPlannerProps> = () => {
       canoncial={ROUTES_NAVIGATE.financialPlanner}
       description="Manage your finances efficiently with our Financial Planner Table. Organize investments, track expenses, and plan your financial future."
     >
-      <StyledFinancialPlanner>
+      <Box>
         <Container>
           <MainFinancialPlanner />
         </Container>
-      </StyledFinancialPlanner>
+      </Box>
     </Page>
   );
 };

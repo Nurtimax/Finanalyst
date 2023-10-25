@@ -5,10 +5,8 @@ interface IAddTimesProps {
   [key: string]: unknown;
 }
 
-const StyledAddTimes = styled(Box)(() => ({}));
-
 const AddTimes: FC<IAddTimesProps> = () => {
-  return <StyledAddTimes>AddTimes</StyledAddTimes>;
+  return <Box>AddTimes</Box>;
 };
 
 export default AddTimes;

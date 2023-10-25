@@ -8,8 +8,6 @@ interface ISignInProps {
   [key: string]: unknown;
 }
 
-const StyledSignIn = styled(Box)(() => ({}));
-
 const SignIn: FC<ISignInProps> = () => {
   return (
     <Page
@@ -17,9 +15,9 @@ const SignIn: FC<ISignInProps> = () => {
       canoncial={ROUTES_NAVIGATE.logIn}
       description="Sign in to your account to access your profile and manage your account settings. Get started with our secure sign-in process now."
     >
-      <StyledSignIn>
+      <Box>
         <MainSignIn />
-      </StyledSignIn>
+      </Box>
     </Page>
   );
 };
