@@ -8,15 +8,13 @@ interface ITodoListProps {
   todos: ITodoList[];
 }
 
-const StyledTodoList = styled(Box)(() => ({}));
-
 const TodoList: FC<ITodoListProps> = ({ todos }) => {
   return (
-    <StyledTodoList>
+    <Box>
       {todos.map((todo) => (
         <TodoItem key={todo.id} {...todo} />
       ))}
-    </StyledTodoList>
+    </Box>
   );
 };
 

@@ -6,10 +6,8 @@ interface ITodoItemProps extends ITodoList {
   [key: string]: unknown;
 }
 
-const StyledTodoItem = styled(Box)(() => ({}));
-
 const TodoItem: FC<ITodoItemProps> = ({ title }) => {
-  return <StyledTodoItem>{title}</StyledTodoItem>;
+  return <Box>{title}</Box>;
 };
 
 export default TodoItem;

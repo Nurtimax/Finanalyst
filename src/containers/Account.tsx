@@ -7,8 +7,6 @@ interface IAccountProps {
   [key: string]: unknown;
 }
 
-const StyledAccount = styled(Box)(() => ({}));
-
 const Account: FC<IAccountProps> = () => {
   return (
     <Page
@@ -16,7 +14,7 @@ const Account: FC<IAccountProps> = () => {
       canoncial={ROUTES_NAVIGATE.account}
       description="Account: Description of your user account and settings."
     >
-      <StyledAccount>Account</StyledAccount>
+      <Box>Account</Box>
     </Page>
   );
 };
