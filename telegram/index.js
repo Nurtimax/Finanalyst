@@ -1,5 +1,5 @@
-import TelegramBot from 'node-telegram-bot-api';
-import 'dotenv/config';
+const TelegramBot = require('node-telegram-bot-api');
+require('dotenv/config');
 
 const token =
   // eslint-disable-next-line no-undef
