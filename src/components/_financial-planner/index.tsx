@@ -8,12 +8,16 @@ interface IMainFinancialPlannerProps {
 
 const StyledMainFinancialPlanner = styled(Box)(() => ({
   display: 'grid',
-  gap: '1rem',
+  gap: '1rem'
 }));
 
 const MainFinancialPlanner: FC<IMainFinancialPlannerProps> = () => {
+  const errorThrow = () => {
+    throw new Error('Testing sentrys');
+  };
   return (
     <StyledMainFinancialPlanner>
+      <button onClick={errorThrow}>test sentry</button>
       <Table />
     </StyledMainFinancialPlanner>
   );
