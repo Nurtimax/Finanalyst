@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./node_modules/@types", "./src"],
+    "typeRoots": ["./node_modules/@types"],
     "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -23,5 +23,5 @@
       "utils/*": ["utils/*"]
     }
   },
-  "include": ["src", "ssr"]
+  "include": ["src", "ssr", "remix.env.d.ts", "**/*.ts", "**/*.tsx"]
 }
