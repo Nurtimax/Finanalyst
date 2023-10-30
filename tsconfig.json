@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src" // Add the path to the directory containing mui.d.ts
-    ],
-    "target": "es5",
+    "typeRoots": ["./node_modules/@types", "./src"],
+    "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -26,5 +23,5 @@
       "utils/*": ["utils/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "ssr"]
 }

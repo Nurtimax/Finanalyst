@@ -12,6 +12,8 @@ import { HelmetProvider } from 'react-helmet-async';
 
 //...
 import * as Sentry from '@sentry/react';
+import { RouterProvider, createBrowserRouter, matchRoutes } from 'react-router-dom';
+import { routes } from '../ssr/routes.jsx';
 
 Sentry.init({
   dsn: process.env.REACT_APP_LINK_SENTRY || '',
@@ -63,14 +65,36 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0 // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
 });
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
+// Determine if any of the initial routes are lazy
+let lazyMatches = matchRoutes(routes, window.location)?.filter((m: any) => m.route.lazy);
+
+// Load the lazy matches and update the routes before creating your router
+// so we can hydrate the SSR-rendered content synchronously
+if (lazyMatches && lazyMatches?.length > 0) {
+  Promise.all(
+    lazyMatches.map(async (m: any) => {
+      let routeModule = await m.route.lazy();
+      Object.assign(m.route, {
+        ...routeModule,
+        lazy: undefined
+      });
+    })
+  )
+    .then((res) => res)
+    .catch((err) => err);
+}
+
+let router = createBrowserRouter(routes);
+
+ReactDOM.hydrateRoot(
+  document.getElementById('root') as HTMLElement,
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <Theme>
           <HelmetProvider>
             <App />
+            <RouterProvider router={router} />
           </HelmetProvider>
         </Theme>
       </LocalizationProvider>
