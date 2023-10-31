@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, styled } from '@mui/material';
-import Table from '../table/Table';
+import Table from 'components/table/Table';
 
 interface IMainFinancialPlannerProps {
   [key: string]: unknown;

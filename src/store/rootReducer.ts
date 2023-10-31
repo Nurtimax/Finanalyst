@@ -1,4 +1,4 @@
-import { Reducer, combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
 
 import price from './slice/price';
 import shedule from './slice/shedule';

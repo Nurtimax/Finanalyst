@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface InitialState {}
 
@@ -8,7 +8,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {}
+  extraReducers: () => {}
 });
 
 export const actionAuthentication = userSlice.actions;

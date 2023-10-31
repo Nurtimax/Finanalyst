@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
 import Page from 'components/helmet-page';
 import { ROUTES_NAVIGATE } from 'routes/paths';
 

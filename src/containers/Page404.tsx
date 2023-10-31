@@ -71,7 +71,7 @@ const StyledPage404 = styled(Box)`
       }
 
       ${stars.map(
-        (item, index) => `
+        (_, index) => `
     &:nth-of-type(${index + 1}) {
       top: ${Math.round(Math.random() * 100)}vh;
       left: ${Math.round(Math.random() * 100)}vw;
@@ -166,7 +166,7 @@ const Page404: FC<IPage404Props> = () => {
     >
       <StyledPage404>
         <div className="container container-star">
-          {stars.map((el, i) => (
+          {stars.map((_, i) => (
             <div className="star-1" key={i} />
           ))}
         </div>

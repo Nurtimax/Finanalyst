@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Container, styled } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import MainFinancialPlanner from '../components/_financial-planner';
 import Page from 'components/helmet-page';
 import { ROUTES_NAVIGATE } from 'routes/paths';

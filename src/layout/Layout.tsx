@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Container, styled, Toolbar } from '@mui/material';
+import { Box, Container, Toolbar } from '@mui/material';
 import Header from './header';
 import Main from './main';
 import { Outlet } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, styled, Breadcrumbs as MuiBreadcrumbs, Typography } from '@mui/material';
+import { Breadcrumbs as MuiBreadcrumbs, Typography } from '@mui/material';
 import useReactRouterBreadcrumbs from 'use-react-router-breadcrumbs';
 import { ROUTES } from 'routes/paths';
 import { NavLink } from 'react-router-dom';

@@ -15,7 +15,7 @@ const StyledSelectUser = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  gap: '2.8rem',
+  gap: '2.8rem'
 }));
 
 const SelectUser: FC<ISelectUserProps> = ({ handleChange }) => {
@@ -25,7 +25,7 @@ const SelectUser: FC<ISelectUserProps> = ({ handleChange }) => {
   return (
     <StyledSelectUser>
       <Autocomplete
-        onChange={(event, newValue) => {
+        onChange={(_, newValue) => {
           handleChange({ id: newValue?.id });
         }}
         id="controllable-states-demo"
@@ -35,10 +35,12 @@ const SelectUser: FC<ISelectUserProps> = ({ handleChange }) => {
         fullWidth
       />
       <Autocomplete
-        onChange={(event, newValue) => {
+        onChange={(_, newValue) => {
           handleChange({
             date: newValue?.date ? parseStringFormat(new Date(newValue?.date)) : '',
-            dates: newValue?.dates.length ? [...newValue.dates] : [{ id: 1, startDate: null, endDate: null }],
+            dates: newValue?.dates.length
+              ? [...newValue.dates]
+              : [{ id: 1, startDate: null, endDate: null }]
           });
         }}
         id="controllable-states-demo"

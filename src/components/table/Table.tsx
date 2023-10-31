@@ -9,17 +9,13 @@ import {
   styled
 } from '@mui/material';
 import React, { useMemo } from 'react';
-import { useTable, Column, CellProps, FooterProps, HeaderGroup } from 'react-table';
+import { useTable, Column, CellProps, FooterProps } from 'react-table';
 import { StoreMonthData } from '../../types/data';
 import { data } from '../../utils/general/data';
 import FooterPrice from './FooterPrice';
 import Price from './Price';
 import TableCell from './TableCell';
 import Total from './Total';
-
-interface CustomHeaderGroup<T extends Record<string, unknown>> extends HeaderGroup<T> {
-  style?: React.CSSProperties;
-}
 
 const StyledMuiTableCell = styled(MuiTableCell)(() => ({
   padding: '6px 0',
@@ -94,7 +90,7 @@ const Table: React.FC = () => {
                   {...headerGroup.getHeaderGroupProps()}
                   key={headerGroup.headers[index].id}
                 >
-                  {headerGroup.headers.map((column: CustomHeaderGroup<StoreMonthData>) => {
+                  {headerGroup.headers.map((column) => {
                     return (
                       <StyledMuiTableCell
                         {...column.getHeaderProps()}
@@ -132,7 +128,7 @@ const Table: React.FC = () => {
           <TableHead>
             {headerGroups.map((headerGroup, index) => (
               <TableRow key={index} id="table-head-sticky-footer">
-                {headerGroup.headers.map((column: CustomHeaderGroup<StoreMonthData>, index) => {
+                {headerGroup.headers.map((column, index) => {
                   return (
                     <StyledMuiTableCell {...column.getHeaderProps()} key={index}>
                       {column.render('Footer')}
