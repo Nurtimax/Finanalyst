@@ -52,5 +52,5 @@ When contributing, please ensure to follow the code of conduct and provide clear
 ## Contact
 If you have any further questions or inquiries about Financial-Planner, you can contact the project maintainer at maksatbeknurtilek@gmail.com.
 
-___
+___________
 Happy budgeting and financial planning with Financial-Planner!
