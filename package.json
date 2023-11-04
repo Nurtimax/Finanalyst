@@ -64,7 +64,7 @@
   },
   "scripts": {
     "start": "webpack --config webpack.config.js",
-    "build": "webpack server --open",
+    "build2": "webpack server --open",
     "start-node": "node telegram/index.js",
     "telegram": "nodemon telegram/index.js",
     "ts-telegram": "ts-node ./telegram/index.ts",
@@ -75,7 +75,7 @@
     "lint-fix": "eslint src --quiet --fix",
     "sentry:sourcemaps": "sentry-cli sourcemaps inject --org nurtimax --project javascript-react-l0 ./out && sentry-cli sourcemaps upload --org nurtimax --project javascript-react-l0 ./out",
     "release": "(export REACT_APP_SENTRY_RELEASE=$(git rev-parse --short HEAD); react-scripts build && node scripts/sentry.cjs)",
-    "ssr": "node server/index.cjs"
+    "build": "node server/index.cjs"
   },
   "browserslist": {
     "production": [
