@@ -2,15 +2,11 @@ import React, { FC, useState } from 'react';
 import { Box, Button, styled } from '@mui/material';
 import AddStoreDialog from './AddStoreDialog';
 
-interface IAddStoreProps {
-  [key: string]: unknown;
-}
-
 const StyledAddStore = styled(Box)(() => ({
-  justifySelf: 'flex-start',
+  justifySelf: 'flex-start'
 }));
 
-const AddStore: FC<IAddStoreProps> = () => {
+const AddStore: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleToggle = () => {

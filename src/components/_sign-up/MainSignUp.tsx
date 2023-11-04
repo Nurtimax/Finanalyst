@@ -2,10 +2,6 @@ import React, { FC } from 'react';
 import { Box, styled } from '@mui/material';
 import SignUpForm from './SignUpForm';
 
-interface IMainSignUpProps {
-  [key: string]: unknown;
-}
-
 const StyledMainSignUp = styled(Box)(() => ({
   background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
   backgroundSize: '400% 400%',
@@ -13,10 +9,10 @@ const StyledMainSignUp = styled(Box)(() => ({
   height: '100vh',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'center'
 }));
 
-const MainSignUp: FC<IMainSignUpProps> = () => {
+const MainSignUp: FC = () => {
   return (
     <StyledMainSignUp>
       <SignUpForm />

@@ -1,11 +1,7 @@
 import { createSvgIcon, SvgIconProps } from '@mui/material';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
-interface IconProps extends SvgIconProps {
-  // Define additional props here if needed
-}
-
-const Logo: FC<IconProps> = (props) => {
+const Logo: FC<SvgIconProps> = (props) => {
   const Icon = createSvgIcon(
     <svg
       width="512"

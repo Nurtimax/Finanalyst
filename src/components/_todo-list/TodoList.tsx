@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
 import { ITodoList } from './Todo';
 import TodoItem from './TodoItem';
 

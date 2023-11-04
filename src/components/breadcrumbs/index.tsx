@@ -6,11 +6,7 @@ import { NavLink } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import _ from 'lodash';
 
-interface IBreadcrumbsProps {
-  [key: string]: unknown;
-}
-
-const Breadcrumbs: FC<IBreadcrumbsProps> = ({}) => {
+const Breadcrumbs: FC = () => {
   const breadcrumbs = useReactRouterBreadcrumbs(
     [
       { path: ROUTES.account, breadcrumb: 'Account' },
