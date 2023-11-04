@@ -2,15 +2,11 @@ import React, { FC, useState } from 'react';
 import { Box, Button, styled } from '@mui/material';
 import DialogAction from './DialogAction';
 
-interface IMainActionsProps {
-  [key: string]: unknown;
-}
-
 const StyledMainActions = styled(Box)(() => ({
-  display: 'flex',
+  display: 'flex'
 }));
 
-const MainActions: FC<IMainActionsProps> = () => {
+const MainActions: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const handleToggle = () => {

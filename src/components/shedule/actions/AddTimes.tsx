@@ -1,11 +1,7 @@
 import React, { FC } from 'react';
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
 
-interface IAddTimesProps {
-  [key: string]: unknown;
-}
-
-const AddTimes: FC<IAddTimesProps> = () => {
+const AddTimes: FC = () => {
   return <Box>AddTimes</Box>;
 };
 

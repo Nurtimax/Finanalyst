@@ -6,10 +6,6 @@ import { useFormik } from 'formik';
 import { SignUpThunk } from 'store/thunk/authentication-thunk';
 import { useAppDispatch } from 'hooks/dispatch';
 
-interface ISignUpFormProps {
-  [key: string]: unknown;
-}
-
 const StyledSignUpForm = styled('form')(() => ({
   width: '30vw',
   background: '#fff',
@@ -25,7 +21,7 @@ const StyledFormAction = styled(Box)(() => ({
   padding: '1rem 0rem'
 }));
 
-const SignUpForm: FC<ISignUpFormProps> = () => {
+const SignUpForm: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 

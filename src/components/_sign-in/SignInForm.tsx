@@ -6,15 +6,11 @@ import { useFormik } from 'formik';
 import { useAppDispatch } from 'hooks/dispatch';
 import { SignInThunk } from 'store/thunk/authentication-thunk';
 
-interface ISignInFormProps {
-  [key: string]: unknown;
-}
-
 const StyledSignInForm = styled('form')(() => ({
   width: '30vw',
   background: '#fff',
   padding: '0.5rem',
-  borderRadius: '5px',
+  borderRadius: '5px'
 }));
 
 const StyledFormAction = styled(Box)(() => ({
@@ -22,10 +18,10 @@ const StyledFormAction = styled(Box)(() => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: '1.5rem',
-  padding: '1rem 0.5rem',
+  padding: '1rem 0.5rem'
 }));
 
-const SignInForm: FC<ISignInFormProps> = () => {
+const SignInForm: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -41,7 +37,7 @@ const SignInForm: FC<ISignInFormProps> = () => {
         .catch((e) => {
           console.log(e);
         });
-    },
+    }
   });
 
   const handleCancel = () => {
