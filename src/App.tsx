@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/config';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import Routes from './routes';
 import { useAppDispatch } from 'hooks/dispatch';
