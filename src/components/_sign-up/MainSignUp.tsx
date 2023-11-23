@@ -10,7 +10,7 @@ const StyledMainSignUp = styled(Box)(() => ({
   background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
   backgroundSize: '400% 400%',
   animation: 'BACKGROUND_GRADIENT_ANIMATION 15s ease infinite',
-  height: '93.15vh',
+  height: '100vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -20,9 +20,6 @@ const StyledMainSignUp = styled(Box)(() => ({
 const MainSignUp: FC<IMainSignUpProps> = () => {
   return (
     <StyledMainSignUp>
-      <Card>
-        
-      </Card>
       <SignUpForm />
     </StyledMainSignUp>
   );

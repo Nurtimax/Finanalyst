@@ -10,21 +10,6 @@ interface ISignInFormProps {
   [key: string]: unknown;
 }
 
-const StyledSignInForm = styled('form')(() => ({
-  width: '30vw',
-  background: '#fff',
-  padding: '0.5rem',
-  borderRadius: '5px',
-}));
-
-const StyledFormAction = styled(Box)(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  gap: '1.5rem',
-  padding: '1rem 0.5rem',
-}));
-
 const SignInForm: FC<ISignInFormProps> = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -41,7 +26,7 @@ const SignInForm: FC<ISignInFormProps> = () => {
         .catch((e) => {
           console.log(e);
         });
-    },
+    }
   });
 
   const handleCancel = () => {
@@ -51,8 +36,8 @@ const SignInForm: FC<ISignInFormProps> = () => {
   return (
     <StyledSignInForm onSubmit={handleSubmit}>
       <FormHeadlines />
-      <FormControl fullWidth>
-        <FormLabel htmlFor="email">Email</FormLabel>
+
+      <StyledFormFields>
         <TextField
           variant="outlined"
           className="form-field"
@@ -60,29 +45,44 @@ const SignInForm: FC<ISignInFormProps> = () => {
           type="email"
           value={values.email}
           onChange={handleChange}
+          label={'Please Enter your email'}
         />
-      </FormControl>
-      <FormControl fullWidth>
-        <FormLabel htmlFor="password">Password</FormLabel>
+
         <TextField
           variant="outlined"
           className="form-field"
           name="password"
           type="password"
+          label={'Please Enter your password'}
           value={values.password}
           onChange={handleChange}
         />
-      </FormControl>
-      <StyledFormAction>
-        <Button variant="outlined" fullWidth type="button" onClick={handleCancel}>
-          Cancel
-        </Button>
-        <Button variant="contained" fullWidth type="submit">
-          Sign In
-        </Button>
-      </StyledFormAction>
+      </StyledFormFields>
+      <StyledButton variant="contained" fullWidth type="submit">
+        Sign In
+      </StyledButton>
     </StyledSignInForm>
   );
 };
 
 export default SignInForm;
+
+
+
+const StyledSignInForm = styled('form')(({ theme }) => ({
+  width: '30vw',
+  background: '#fff',
+  padding: theme.spacing(2),
+  borderRadius: '5px',
+  boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'
+}));
+
+const StyledFormFields = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(2)
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2)
+}));

@@ -13,7 +13,7 @@ const StyledMainSignIn = styled(Box)(() => ({
   height: '100vh',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'center'
 }));
 
 const MainSignIn: FC<IMainSignInProps> = () => {

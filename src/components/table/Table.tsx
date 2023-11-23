@@ -28,6 +28,7 @@ const StyledMuiTableCell = styled(MuiTableCell)(() => ({
   }
 }));
 
+
 const Table: React.FC = () => {
   const columns = useMemo<Column<StoreMonthData>[]>(
     () => [
