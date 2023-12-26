@@ -5,7 +5,7 @@ const token =
   // eslint-disable-next-line no-undef
   process.env.REACT_APP_TOKEN;
 
-const webAppUrl = 'https://financial-planner-git-telegram-bot-nurtimax.vercel.app';
+const webAppUrl = 'https://finanalyst.vercel.app';
 
 if (token) {
   const bot = new TelegramBot(token, { polling: true });
