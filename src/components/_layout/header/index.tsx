@@ -1,5 +1,15 @@
 import * as React from 'react';
-import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { Logo } from '../../../assets';
@@ -10,7 +20,7 @@ import Settings from './Settings';
 const pages = [
   { id: 1, path: ROUTES.financialPlanner, name: 'Financial Planner' },
   { id: 2, path: ROUTES.shedule, name: 'Shedule' },
-  { id: 3, path: ROUTES.newTable, name: 'New Table' },
+  { id: 3, path: ROUTES.newTable, name: 'New Table' }
 ];
 
 function MainHeader() {
@@ -67,17 +77,17 @@ function MainHeader() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
               {pages.map((page) => (

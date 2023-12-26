@@ -43,6 +43,7 @@ const Settings: FC<ISettingsProps> = ({
 
   return (
     <StyledSettings>
+      {user?.username}
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt={user?.username} src="/static/images/avatar/2.jpg" />
