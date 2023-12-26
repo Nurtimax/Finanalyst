@@ -1,7 +1,17 @@
 import React, { FC, useMemo } from 'react';
-import { Avatar, Box, IconButton, Menu, MenuItem, styled, Tooltip, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+  styled,
+  Tooltip,
+  Typography
+} from '@mui/material';
 import { SETTINGS } from '../../../utils/constants/authentication';
 import { useAppSelector } from 'hooks/dispatch';
+import useTelegram from 'hooks/useTelegram';
 
 interface ISettingsProps {
   [key: string]: unknown;
@@ -12,16 +22,17 @@ interface ISettingsProps {
 }
 
 const StyledSettings = styled(Box)(() => ({
-  flexGrow: 0,
+  flexGrow: 0
 }));
 
 const Settings: FC<ISettingsProps> = ({
   handleCloseUserMenu,
   anchorElUser,
   handleOpenUserMenu,
-  handleNavigateUserMenu,
+  handleNavigateUserMenu
 }) => {
   const { userData } = useAppSelector((state) => state.auth);
+  const { user } = useTelegram();
 
   const settingsOptions = useMemo(() => {
     if (userData.email) {
@@ -34,7 +45,7 @@ const Settings: FC<ISettingsProps> = ({
     <StyledSettings>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Nurtilek" src="/static/images/avatar/2.jpg" />
+          <Avatar alt={user?.username} src="/static/images/avatar/2.jpg" />
         </IconButton>
       </Tooltip>
       <Menu
@@ -43,12 +54,12 @@ const Settings: FC<ISettingsProps> = ({
         anchorEl={anchorElUser}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'right'
         }}
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
